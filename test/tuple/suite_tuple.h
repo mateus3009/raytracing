@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   suite_tuple.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:56:22 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 10:41:31 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#ifndef SUITE_TUPLE_H
+# define SUITE_TUPLE_H
 
-int	main(void)
-{
-	t_test	*tests;
+# include "./../test.h"
 
-	tests = (t_test[]){
-		suite_tuple,
-		NULL};
-	execute_tests(tests);
-	printf("\nend\n");
-	return (0);
-}
+void	suite_tuple(void);
+
+#endif

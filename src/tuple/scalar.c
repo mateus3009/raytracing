@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   scalar.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:56:22 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/02 21:11:45 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 10:19:06 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "tuple.h"
 
-int	main(void)
+t_tuple	scalar(t_tuple a, double b)
 {
-	t_test	*tests;
-
-	tests = (t_test[]){
-		suite_tuple,
-		NULL};
-	execute_tests(tests);
-	printf("\nend\n");
-	return (0);
+	return (
+		tuple(
+			a.x * b,
+			a.y * b,
+			a.z * b,
+			a.w * b));
 }

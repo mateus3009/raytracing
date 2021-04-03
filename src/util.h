@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   util.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:56:22 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/02 22:43:01 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#ifndef UTIL_H
+# define UTIL_H
 
-int	main(void)
-{
-	t_test	*tests;
+# include "./../lib/minilibx-linux/mlx.h"
+# include "./../lib/libft/srcs/libft.h"
 
-	tests = (t_test[]){
-		suite_tuple,
-		NULL};
-	execute_tests(tests);
-	printf("\nend\n");
-	return (0);
-}
+# include <math.h>
+# include <stdio.h>
+# include <float.h>
+# include <stdlib.h>
+# include <stdbool.h>
+
+#endif

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test_util.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:56:22 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 10:12:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#ifndef TESTS_UTIL_H
+# define TESTS_UTIL_H
 
-int	main(void)
-{
-	t_test	*tests;
+# include "./../src/minirt.h"
+# include <assert.h>
+# include <stdio.h>
 
-	tests = (t_test[]){
-		suite_tuple,
-		NULL};
-	execute_tests(tests);
-	printf("\nend\n");
-	return (0);
-}
+typedef void	(*t_test)(void);
+
+void			execute_tests(t_test *tests);
+
+#endif

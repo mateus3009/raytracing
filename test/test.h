@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/02 20:21:35 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/03 10:39:48 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_H
 # define TEST_H
 
-# include <assert.h>
-# include <stdio.h>
+# include "./test_util.h"
+# include "./tuple/suite_tuple.h"
 
 #endif

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tuple_equal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:56:22 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 10:16:39 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "tuple.h"
 
-int	main(void)
+bool	tuple_equal(t_tuple a, t_tuple b)
 {
-	t_test	*tests;
-
-	tests = (t_test[]){
-		suite_tuple,
-		NULL};
-	execute_tests(tests);
-	printf("\nend\n");
-	return (0);
+	return (
+		a.x == b.x
+		&& a.y == b.y
+		&& a.z == b.z
+		&& a.w == b.w);
 }

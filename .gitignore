@@ -1,3 +1,4 @@
 **/*.o
 miniRT
 miniRT_test
+.vscode

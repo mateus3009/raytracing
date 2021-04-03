@@ -6,13 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/02 20:21:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/02 21:35:01 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include <stdio.h>
+# include "./util.h"
+# include "./tuple/tuple.h"
 
 #endif
