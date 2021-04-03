@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:22:26 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:58:08 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,20 @@
 
 # include "./../util.h"
 
-typedef struct s_tuple
+typedef union u_tuple
 {
-	double	x;
-	double	y;
-	double	z;
-	double	w;
+	struct {
+		double	x;
+		double	y;
+		double	z;
+		double	w;
+	};
+	struct {
+		double	r;
+		double	g;
+		double	b;
+		double	a;
+	};
 }				t_tuple;
 
 typedef t_tuple	t_vector;
@@ -40,5 +48,6 @@ double			length(t_tuple a);
 t_tuple			normalize(t_tuple a);
 bool			tuple_equal(t_tuple a, t_tuple b);
 t_vector		cross(t_vector a, t_vector b);
+t_tuple			product(t_tuple a, t_tuple b);
 
 #endif

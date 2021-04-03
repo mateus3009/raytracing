@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:42:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:49:04 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_TUPLE_H
 # define TEST_TUPLE_H
 
-# include "./../test.h"
+# include "./../test_util.h"
 
 void	test_cross_one(void);
 void	test_cross_two(void);
@@ -52,5 +52,7 @@ void	test_tuple_two(void);
 
 void	test_vector_one(void);
 void	test_vector_two(void);
+
+void	test_product(void);
 
 #endif

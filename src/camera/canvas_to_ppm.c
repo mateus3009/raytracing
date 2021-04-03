@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   canvas_to_ppm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 12:16:36 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 15:52:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "camera.h"
 
-# include "./test_util.h"
-# include "./tuple/suite_tuple.h"
-# include "./camera/suite_camera.h"
+void	canvas_to_ppm(t_canvas canvas)
+{
+	int		row;
+	int		column;
+	t_pixel	pixel;
 
-#endif
+	printf("P3\n%d %d\n255\n", canvas.width, canvas.height);
+	row = canvas.height;
+	while (row--)
+	{
+		column = canvas.width;
+		while (column--)
+		{
+			pixel = *(canvas.pixels + (row * canvas.width) + column);
+			printf("%.f %.f %.f\n", pixel.r, pixel.g, pixel.b);
+		}
+	}
+}

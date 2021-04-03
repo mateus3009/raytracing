@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   camera.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 12:16:36 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 11:28:30 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 15:54:48 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef CAMERA_H
+# define CAMERA_H
 
-# include "./test_util.h"
-# include "./tuple/suite_tuple.h"
-# include "./camera/suite_camera.h"
+# include "./../util.h"
+
+# include "./../tuple/tuple.h"
+
+typedef t_tuple	t_pixel;
+
+typedef struct s_canvas
+{
+	int		width;
+	int		height;
+	t_pixel	*pixels;
+}				t_canvas;
+
+t_canvas	canvas_init(int width, int height);
+void		canvas_destroy(t_canvas canvas);
+void		write_pixel(t_canvas canvas, int width, int height, t_pixel pixel);
+void		canvas_to_ppm(t_canvas canvas);
 
 #endif

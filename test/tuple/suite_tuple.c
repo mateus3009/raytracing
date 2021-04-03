@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 10:31:20 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:42:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:37:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	suite_tuple(void)
 {
 	t_test	*tests;
 
-	printf("tuple\n\n");
+	printf("\ntuple\n\n");
 	tests = (t_test[]){
 		test_cross_one,
 		test_cross_two,
@@ -45,6 +45,7 @@ void	suite_tuple(void)
 		test_tuple_two,
 		test_vector_one,
 		test_vector_two,
+		test_product,
 		NULL};
 	execute_tests(tests);
 }
