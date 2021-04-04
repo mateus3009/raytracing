@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 16:14:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 20:44:20 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/04 09:18:06 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ double			determinant(t_matrix matrix);
 double			minor(t_matrix matrix, int y, int x);
 double			cofator(t_matrix matrix, int y, int x);
 t_matrix		matrix_invert(t_matrix m);
+t_matrix		matrix_identity(int size);
 
 #endif

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.h                                             :+:      :+:    :+:   */
+/*   rotatey.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/04 09:37:08 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/04 09:16:31 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/04 09:47:41 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "transform.h"
 
-# include "./../lib/minilibx-linux/mlx.h"
-# include "./../lib/libft/srcs/libft.h"
-
-# include <math.h>
-# include <stdio.h>
-# include <float.h>
-# include <stdlib.h>
-# include <stdbool.h>
-
-# define PI 3.14159265358979323846
-
-#endif
+t_matrix	rotatey(double r)
+{
+	return ((t_matrix){.size = 4, .values = {
+		{cos(r), 0, sin(r), 0},
+		{0, 1, 0, 0},
+		{-sin(r), 0, cos(r), 0},
+		{0, 0, 0, 1}}});
+}

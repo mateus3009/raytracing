@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.h                                             :+:      :+:    :+:   */
+/*   util_function.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/04 09:37:08 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/04 09:32:31 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/04 09:38:40 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#ifndef UTIL_FUNCTION_H
+# define UTIL_FUNCTION_H
 
-# include "./../lib/minilibx-linux/mlx.h"
-# include "./../lib/libft/srcs/libft.h"
+# include "./../util.h"
 
-# include <math.h>
-# include <stdio.h>
-# include <float.h>
-# include <stdlib.h>
-# include <stdbool.h>
-
-# define PI 3.14159265358979323846
+double	degrees_to_radians(double degrees);
 
 #endif
