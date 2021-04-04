@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 15:58:08 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/03 18:35:31 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef union u_tuple
 		double	b;
 		double	a;
 	};
+	double	values[4];
 }				t_tuple;
 
 typedef t_tuple	t_vector;

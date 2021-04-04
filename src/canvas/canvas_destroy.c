@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_pixel.c                                      :+:      :+:    :+:   */
+/*   canvas_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 11:29:23 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 15:50:43 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:03:48 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "canvas.h"
 
-void	write_pixel(t_canvas canvas, int width, int height, t_pixel pixel)
+void	canvas_destroy(t_canvas canvas)
 {
-	*(canvas.pixels + height * canvas.width + width) = pixel;
+	if (canvas.pixels)
+		free(canvas.pixels);
 }

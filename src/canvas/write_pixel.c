@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   suite_camera.c                                     :+:      :+:    :+:   */
+/*   write_pixel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 12:09:56 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 12:37:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 11:29:23 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 16:04:08 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./tests_camera.h"
+#include "canvas.h"
 
-void	suite_camera(void)
+void	write_pixel(t_canvas canvas, int width, int height, t_pixel pixel)
 {
-	t_test *tests;
-
-	printf("\ncamera\n\n");
-	tests = (t_test[]){
-		test_canvas_init,
-		NULL};
-	execute_tests(tests);
+	*(canvas.pixels + height * canvas.width + width) = pixel;
 }

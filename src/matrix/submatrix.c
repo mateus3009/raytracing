@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas_init.c                                      :+:      :+:    :+:   */
+/*   submatrix.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 11:29:23 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 12:39:30 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 19:44:55 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_camera.h"
+#include "matrix.h"
 
-void	test_canvas_init(void)
+t_matrix	submatrix(t_matrix original, int y, int x)
 {
-	t_canvas	canvas;
+	t_matrix	sub;
 	int			row;
 	int			column;
-	t_tuple		black;
+	int			row_;
+	int			column_;
 
-	printf("%s\n", __func__);
-	canvas = canvas_init(20, 30);
-	black = tuple(0, 0, 0, 0);
-	assert(canvas.width == 20);
-	assert(canvas.height == 30);
-	row = 20;
-	while (row--)
+	sub = matrix(original.size - 1);
+	row = 0;
+	row_ = 0;
+	while (row < original.size)
 	{
-		column = 30;
-		while (column--)
-			assert(tuple_equal(*(canvas.pixels + (row * 30) + column), black));
+		column = 0;
+		column_ = 0;
+		while (column < original.size)
+		{
+			sub.values[row_][column_] = original.values[row][column];
+			if (column != x)
+				column_++;
+			column++;
+		}
+		if (row != y)
+			row_++;
+		row++;
 	}
-	canvas_destroy(canvas);
+	return (sub);
 }

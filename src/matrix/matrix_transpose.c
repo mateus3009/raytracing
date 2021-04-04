@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas_to_ppm.c                                    :+:      :+:    :+:   */
+/*   matrix_transpose.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 15:52:13 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 18:58:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "matrix.h"
 
-void	canvas_to_ppm(t_canvas canvas)
+t_matrix	matrix_transpose(t_matrix original)
 {
-	int		row;
-	int		column;
-	t_pixel	pixel;
+	t_matrix	transposed;
+	int			row;
+	int			column;
 
-	printf("P3\n%d %d\n255\n", canvas.width, canvas.height);
-	row = canvas.height;
+	transposed = matrix(original.size);
+	row = original.size;
 	while (row--)
 	{
-		column = canvas.width;
+		column = original.size;
 		while (column--)
-		{
-			pixel = *(canvas.pixels + (row * canvas.width) + column);
-			printf("%.f %.f %.f\n", pixel.r, pixel.g, pixel.b);
-		}
+			transposed.values[row][column] = original.values[column][row];
 	}
+	return (transposed);
 }

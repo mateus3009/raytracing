@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   canvas_to_ppm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 16:30:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/03 16:04:01 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "canvas.h"
 
-# include "./util.h"
-# include "./tuple/tuple.h"
-# include "./canvas/canvas.h"
-# include "./matrix/matrix.h"
-#endif
+void	canvas_to_ppm(t_canvas canvas)
+{
+	int		row;
+	int		column;
+	t_pixel	pixel;
+
+	printf("P3\n%d %d\n255\n", canvas.width, canvas.height);
+	row = canvas.height;
+	while (row--)
+	{
+		column = canvas.width;
+		while (column--)
+		{
+			pixel = *(canvas.pixels + (row * canvas.width) + column);
+			printf("%.f %.f %.f\n", pixel.r, pixel.g, pixel.b);
+		}
+	}
+}
