@@ -6,7 +6,7 @@
 #    By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/02 18:57:50 by msales-a          #+#    #+#              #
-#    Updated: 2021/04/03 16:11:23 by msales-a         ###   ########.fr        #
+#    Updated: 2021/04/13 20:47:52 by msales-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,6 @@ PRODUCT := miniRT
 SOURCES := $(shell find src -type f -name *.c)
 
 OBJECTS := $(addprefix target/,$(SOURCES:.c=.o))
-
-TEST := $(shell find test -type f -name *.c)
-
-TEST_OBJECTS := $(addprefix target/,$(TEST:.c=.o))
-
-OBJECTS_WITHOUT_MAIN := $(filter-out %main.o, $(OBJECTS))
 
 LIBRARIES = ./lib/libft/libft.a ./lib/minilibx-linux/libmlx.a
 
@@ -42,12 +36,6 @@ fclean :
 re : all clean
 
 bonus : all
-
-test : $(PRODUCT)_test
-	@./$(PRODUCT)_test
-
-$(PRODUCT)_test : $(OBJECTS_WITHOUT_MAIN) $(TEST_OBJECTS) $(LIBRARIES)
-	@$(CC) $(OBJECTS_WITHOUT_MAIN) $(TEST_OBJECTS) $(CC_FLAGS) -o $(PRODUCT)_test
 
 target/%.o : %.c
 	@mkdir -p $(@D)
