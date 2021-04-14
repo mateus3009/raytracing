@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/14 09:50:06 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/14 09:45:23 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "./sphere.h"
 
-# include "./util.h"
-# include "./tuple/tuple.h"
-# include "./canvas/canvas.h"
-# include "./matrix/matrix.h"
-# include "./transform/transform.h"
-# include "./util_function/util_function.h"
-# include "./ray/ray.h"
-# include "./objects/objects.h"
+t_object	sphere()
+{
+	t_sphere	*sphere;
 
-#endif
+	sphere = malloc(sizeof(t_sphere));
+	if (!sphere)
+		exit(1);
+	sphere->origin = point(0, 0, 0);
+	sphere->radius = 1;
+	return ((t_object){
+		.data = sphere,
+		.intersect = sphere_intersect
+	});
+}
