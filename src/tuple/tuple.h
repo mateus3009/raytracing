@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 18:35:31 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/15 20:51:56 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,12 @@
 
 # include "./../util.h"
 
-typedef union u_tuple
+typedef struct u_tuple
 {
-	struct {
-		double	x;
-		double	y;
-		double	z;
-		double	w;
-	};
-	struct {
-		double	r;
-		double	g;
-		double	b;
-		double	a;
-	};
-	double	values[4];
+	double	x;
+	double	y;
+	double	z;
+	double	w;
 }				t_tuple;
 
 typedef t_tuple	t_vector;
