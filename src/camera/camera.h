@@ -6,15 +6,15 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:00:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/14 22:47:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/15 21:24:12 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAMERA_H
 # define CAMERA_H
 
+# include "./../util/util.h"
 # include "./../tuple/tuple.h"
-# include "./../util_function/util_function.h"
 # include "./../ray/ray.h"
 
 typedef struct s_camera

@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 09:15:44 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/04 10:08:59 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/15 21:23:10 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TRANSFORM_H
 # define TRANSFORM_H
 
-# include "./../util.h"
+# include "./../util/util.h"
 # include "./../matrix/matrix.h"
 
 typedef struct s_shearing

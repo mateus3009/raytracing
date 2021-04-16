@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 20:51:56 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/15 21:23:22 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TUPLE_H
 # define TUPLE_H
 
-# include "./../util.h"
+# include "./../util/util.h"
 
 typedef struct u_tuple
 {

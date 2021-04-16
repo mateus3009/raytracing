@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 16:14:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/04 09:18:06 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/15 21:23:10 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATRIX_H
 # define MATRIX_H
 
-# include "./../util.h"
+# include "./../util/util.h"
 # include "./../tuple/tuple.h"
 
 typedef struct s_matrix
@@ -21,6 +21,12 @@ typedef struct s_matrix
 	char	size;
 	double	values[4][4];
 }				t_matrix;
+
+typedef union u_tuple_array
+{
+	t_tuple	tuple;
+	double	values[4];
+}				t_tuple_array;
 
 t_matrix		matrix(int size);
 t_matrix		matrix_multiply(t_matrix a, t_matrix b);
