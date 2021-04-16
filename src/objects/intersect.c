@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   intersect.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/16 08:44:10 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/16 08:46:20 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/16 08:58:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./sphere.h"
+#include "objects.h"
 
-t_object	sphere()
+bool	intersect(
+	t_object obj,
+	t_ray ray,
+	t_hit_range range,
+	t_intersection *hit)
 {
-	return ((t_object){
-		.intersect = sphere_intersect,
-		.inverse_matrix = matrix_identity(4)
-	});
+	return (obj.intersect(obj, ray, range, hit));
 }

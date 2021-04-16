@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/14 23:14:48 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 08:17:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 # define SPHERE_H
 
 # include "./../objects_structs.h"
-
-typedef struct s_sphere
-{
-	t_point	origin;
-	double	radius;
-}				t_sphere;
 
 typedef struct s_sphere_params
 {

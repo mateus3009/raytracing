@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 18:39:23 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:10:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,44 @@ void	teste(t_camera camera, t_canvas canvas, t_object obj)
 			h = y / (double)(canvas.height - 1);
 			w = x / (double)(canvas.width - 1);
 			ray = get_ray(camera, w, h);
-			bool teste = sphere_intersect(obj, ray, (t_hit_range){.min = .001, .max = INFINITY}, &hit);
+			bool teste = intersect(obj, ray, (t_hit_range){.min = .001, .max = INFINITY}, &hit);
 			if (teste)
-				write_pixel(canvas, x, y, (t_pixel){1, 1, 1, 1});
+			{
+				t_tuple k = divide(sum(normalize(hit.normal), vector(1, 1, 1)), 2);
+				if (k.x < 0 || k.y < 0 || k.z < 0)
+					k = k;
+				write_pixel(canvas, x, y,
+					(t_tuple_pixel)k);
+			}
 		}
 	}
 }
 
+
 int	main(void)
 {
 	double		aspect_ratio;
-	t_canvas	canvas;
 	t_camera	cam;
-	t_object	object;
+	t_object	obj;
+	t_canvas	canvas;
+	t_point		look_from;
+	t_point		look_at;
 
-	aspect_ratio = 3 / 2;
-	canvas = canvas_init(100, 100 / aspect_ratio);
-	object = sphere();
+
+	look_from = point(0, 0, 2);
+	look_at = point(0, 0, -1);
+	aspect_ratio = 16. / 9.;
+	canvas = canvas_init(300, 300 / aspect_ratio);
 	cam = camera((t_camera_param){
-		.look_from = point(-2, 2, 1),
-		.look_at = point(0, 0, -1),
-		.up = vector(0, 1, 0),
-		.aperture = 0,
+		.look_from = look_from,
+		.look_at = look_at,
 		.aspect_ratio = aspect_ratio,
-		.focus_distance = 1,
-		.vertical_field_of_view = 90
-	});
-	teste(cam, canvas, object);
+		.up = vector(0, 1, 0),
+		.vertical_field_of_view = 90,
+		.aperture = .1,
+		.focus_distance = length(minus(look_from, look_at))});
+	obj = sphere();
+	teste(cam, canvas, obj);
 	canvas_to_ppm(canvas);
 	return (0);
 }

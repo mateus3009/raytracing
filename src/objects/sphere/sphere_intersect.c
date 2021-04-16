@@ -6,22 +6,20 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/14 09:31:51 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:48:41 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sphere.h"
 
-static t_sphere_params	sphere_params(
-	t_sphere sphere,
-	t_ray ray)
+static t_sphere_params	sphere_params(t_ray ray)
 {
 	t_sphere_params	p;
 
-	p.oc = minus(ray.origin, sphere.origin);
+	p.oc = minus(ray.origin, point(0, 0, 0));
 	p.a = dot(ray.direction, ray.direction);
 	p.b = 2 * dot(p.oc, ray.direction);
-	p.c = dot(p.oc, p.oc) - sphere.radius * sphere.radius;
+	p.c = dot(p.oc, p.oc) - 1;
 	p.det = p.b * p.b - 4 * p.a * p.c;
 	if (p.det < 0)
 		return (p);
@@ -36,12 +34,11 @@ bool	sphere_intersect(
 	t_hit_range range,
 	t_intersection *hit)
 {
-	t_sphere		sphere;
 	t_sphere_params	p;
 	double			root;
 
-	sphere = *(t_sphere *)object.data;
-	p = sphere_params(sphere, ray);
+	ray = transform_ray(ray, object.inverse_matrix);
+	p = sphere_params(ray);
 	if (p.det < 0)
 		return (false);
 	root = p.x1;
@@ -54,7 +51,7 @@ bool	sphere_intersect(
 	hit->t_object = object;
 	hit->t = root;
 	hit->point = ray_at(ray, hit->t);
-	hit->normal = divide(minus(hit->point, sphere.origin), sphere.radius);
+	hit->normal = minus(hit->point, point(0, 0, 0));
 	hit->front_face = dot(ray.direction, hit->normal) < 0;
 	if (!hit->front_face)
 		hit->normal = scalar(hit->normal, -1);

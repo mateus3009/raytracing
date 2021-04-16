@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/14 23:12:45 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 08:22:26 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./../tuple/tuple.h"
 # include "./../ray/ray.h"
+# include "./../matrix/matrix.h"
 
 struct s_object;
 struct s_hit_range;
@@ -26,7 +27,7 @@ typedef struct s_intersection t_intersection;
 
 typedef struct s_object
 {
-	void	*data;
+	t_matrix	inverse_matrix;
 	bool	(*intersect)(
 		t_object object,
 		t_ray ray,
