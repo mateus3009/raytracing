@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/16 19:48:41 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:27:02 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_sphere_params	sphere_params(t_ray ray)
 bool	sphere_intersect(
 	t_object object,
 	t_ray ray,
-	t_hit_range range,
+	t_range range,
 	t_intersection *hit)
 {
 	t_sphere_params	p;

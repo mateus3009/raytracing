@@ -6,43 +6,11 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/16 20:10:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 21:34:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-void	teste(t_camera camera, t_canvas canvas, t_object obj)
-{
-	int		x;
-	int		y;
-	double	w;
-	double	h;
-	t_ray	ray;
-	t_intersection	hit;
-
-	y = canvas.height;
-	while (--y >= 0)
-	{
-		x = -1;
-		while (x++ < canvas.width - 1)
-		{
-			h = y / (double)(canvas.height - 1);
-			w = x / (double)(canvas.width - 1);
-			ray = get_ray(camera, w, h);
-			bool teste = intersect(obj, ray, (t_hit_range){.min = .001, .max = INFINITY}, &hit);
-			if (teste)
-			{
-				t_tuple k = divide(sum(normalize(hit.normal), vector(1, 1, 1)), 2);
-				if (k.x < 0 || k.y < 0 || k.z < 0)
-					k = k;
-				write_pixel(canvas, x, y,
-					(t_tuple_pixel)k);
-			}
-		}
-	}
-}
-
 
 int	main(void)
 {
@@ -67,7 +35,8 @@ int	main(void)
 		.aperture = .1,
 		.focus_distance = length(minus(look_from, look_at))});
 	obj = sphere();
-	teste(cam, canvas, obj);
+	t_list *k = ft_lstnew(&obj);
+	render(cam, canvas, k);
 	canvas_to_ppm(canvas);
 	return (0);
 }

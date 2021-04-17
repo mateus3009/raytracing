@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 21:23:38 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:41:29 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 # include "./ray/ray.h"
 # include "./objects/objects.h"
 # include "./camera/camera.h"
+# include "./world/world.h"
 
 #endif
