@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   material.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 10:34:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/17 11:42:47 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/17 17:22:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tuple.h"
+#include "material.h"
 
-t_point	point(double x, double y, double z)
+t_material	material()
 {
-	return ((t_point){.x = x, .y = y, .z = z, .w = 1});
+	return ((t_material){
+		.color = pixel(1, 1, 1),
+		.ambient = .1,
+		.diffuse = .9,
+		.specular = .9,
+		.shininess = 200.
+	});
 }

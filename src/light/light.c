@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 10:34:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/17 11:21:46 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/17 11:23:10 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tuple.h"
+#include "light.h"
 
-t_point	point(double x, double y, double z)
+t_light	light(t_pixel intensity, t_point origin)
 {
-	return ((t_point){.x = x, .y = y, .z = z, .w = 1});
+	return ((t_light){.intensity = intensity, .origin = origin});
 }

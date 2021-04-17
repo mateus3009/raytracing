@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 21:23:22 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/17 11:02:54 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,29 @@
 
 # include "./../util/util.h"
 
-typedef struct u_tuple
+typedef union u_tuple
 {
-	double	x;
-	double	y;
-	double	z;
-	double	w;
+	struct
+	{
+		double	x;
+		double	y;
+		double	z;
+		double	w;
+	};
+	struct
+	{
+		double	r;
+		double	g;
+		double	b;
+		double	a;
+	};
 }				t_tuple;
 
 typedef t_tuple	t_vector;
 
 typedef t_tuple	t_point;
+
+typedef t_tuple	t_pixel;
 
 t_tuple			tuple(double x, double y, double z, double w);
 t_vector		vector(double x, double y, double z);
@@ -41,5 +53,7 @@ t_tuple			normalize(t_tuple a);
 bool			tuple_equal(t_tuple a, t_tuple b);
 t_vector		cross(t_vector a, t_vector b);
 t_tuple			product(t_tuple a, t_tuple b);
+t_vector		reflect(t_vector vector, t_vector normal);
+t_pixel			pixel(double r, double g, double b);
 
 #endif

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   clamp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 10:34:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/17 18:23:40 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/17 18:24:23 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tuple.h"
-
-t_point	point(double x, double y, double z)
+double	clamp(double value, double min, double max)
 {
-	return ((t_point){.x = x, .y = y, .z = z, .w = 1});
+	if (value < min)
+		return (min);
+	if (value > max)
+		return (max);
+	return (value);
 }

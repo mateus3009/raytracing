@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   light.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 10:34:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/17 11:06:48 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/17 16:45:56 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tuple.h"
+#ifndef LIGHT_H
+# define LIGHT_H
 
-t_point	point(double x, double y, double z)
+# include "./../tuple/tuple.h"
+# include "./../material/material.h"
+# include "./../objects/objects.h"
+
+typedef struct s_light
 {
-	return ((t_point){.x = x, .y = y, .z = z, .w = 1});
-}
+	t_pixel	intensity;
+	t_point	origin;
+}				t_light;
+
+t_light			light(
+	t_pixel intensity,
+	t_point origin);
+t_pixel			lighting(
+	t_light light,
+	t_intersection hit);
+
+#endif

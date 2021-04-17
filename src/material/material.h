@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   material.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 10:34:42 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/17 11:24:35 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/17 11:45:17 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tuple.h"
+#ifndef MATERIAL_H
+# define MATERIAL_H
 
-t_point	point(double x, double y, double z)
+# include "./../tuple/tuple.h"
+
+/*
+** ambient		[0, 1]
+** diffuse		[0, 1]
+** specular		[0, 1]
+** shininess	[10, 200]
+*/
+
+typedef struct s_material
 {
-	return ((t_point){.x = x, .y = y, .z = z, .w = 1});
-}
+	t_pixel	color;
+	double	ambient;
+	double	diffuse;
+	double	specular;
+	double	shininess;
+}				t_material;
+
+t_material		material();
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/16 19:01:40 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/17 18:25:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	canvas_to_ppm(t_canvas canvas)
 		{
 			pixel = *(canvas.pixels + (row * canvas.width) + column);
 			printf("%.f %.f %.f\n",
-				pixel.r * 255,
-				pixel.g * 255,
-				pixel.b * 255);
+				clamp(pixel.r * 255, 0, 255),
+				clamp(pixel.g * 255, 0, 255),
+				clamp(pixel.b * 255, 0, 255));
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/16 21:34:45 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/17 16:40:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "./../objects/objects.h"
 # include "./../canvas/canvas.h"
 # include "./../camera/camera.h"
+# include "./../light/light.h"
 
 bool	hit(t_ray ray, t_list *lst, t_intersection *rec);
 void	render(t_camera camera, t_canvas canvas, t_list *lst);
