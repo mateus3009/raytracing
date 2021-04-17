@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/16 20:27:02 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 22:51:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_intersection t_intersection;
 
 typedef struct s_object
 {
+	t_matrix	matrix;
 	t_matrix	inverse_matrix;
 	bool	(*intersect)(
 		t_object object,
