@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 21:24:50 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/16 21:50:19 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@
 
 # define PI 3.14159265358979323846
 
+extern unsigned long long int	g_seed;
+
 double	degrees_to_radians(double degrees);
+double	ft_rand(void);
+void	ft_srand(unsigned long long int seed);
 
 #endif
