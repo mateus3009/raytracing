@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 16:40:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:20:24 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,17 @@
 # include "./../camera/camera.h"
 # include "./../light/light.h"
 
+typedef struct s_job
+{
+	t_camera	camera;
+	t_canvas	canvas;
+	t_list		*objects;
+	int			samples_per_pixel;
+}				t_job;
+
 bool	hit(t_ray ray, t_list *lst, t_intersection *rec);
-void	render(t_camera camera, t_canvas canvas, t_list *lst);
+t_pixel	get_color(t_job job, double w, double h);
+t_pixel	render_pixel(t_job job, int x, int y);
+void	render(t_job job);
 
 #endif

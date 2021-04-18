@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_intersect.c                                  :+:      :+:    :+:   */
+/*   ft_rand_range.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 17:52:35 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/16 21:36:29 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/18 11:02:14 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./plane.h"
+#include "util.h"
 
-bool	plane_intersect(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t)
+double	ft_rand_range(double min, double max)
 {
-
-	if (fabs(ray.direction.y) < .0001)
-		return (false);
-	*t  = (-ray.origin.y) / ray.direction.y;
-	if (*t < range.min || range.max < *t)
-		return (false);
-	return (true);
+	return (min + (max - min) * ft_rand());
 }

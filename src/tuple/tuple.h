@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 11:02:54 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:10:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ t_vector		cross(t_vector a, t_vector b);
 t_tuple			product(t_tuple a, t_tuple b);
 t_vector		reflect(t_vector vector, t_vector normal);
 t_pixel			pixel(double r, double g, double b);
+t_tuple			clamp_tuple(t_tuple t, double min, double max);
 
 #endif

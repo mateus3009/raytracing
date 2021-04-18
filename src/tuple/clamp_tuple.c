@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_intersect.c                                  :+:      :+:    :+:   */
+/*   clamp_tuple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 17:52:35 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/18 16:09:24 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/18 16:10:44 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./plane.h"
+#include "tuple.h"
 
-bool	plane_intersect(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t)
+t_tuple	clamp_tuple(t_tuple t, double min, double max)
 {
-
-	if (fabs(ray.direction.y) < .0001)
-		return (false);
-	*t  = (-ray.origin.y) / ray.direction.y;
-	if (*t < range.min || range.max < *t)
-		return (false);
-	return (true);
+	return (tuple(
+		clamp(t.x, min, max),
+		clamp(t.y, min, max),
+		clamp(t.z, min, max),
+		clamp(t.w, min, max)));
 }

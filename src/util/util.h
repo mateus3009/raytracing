@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 18:24:53 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 11:02:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ double	degrees_to_radians(double degrees);
 double	ft_rand(void);
 void	ft_srand(unsigned long long int seed);
 double	clamp(double value, double min, double max);
+double	ft_rand_range(double min, double max);
 
 #endif

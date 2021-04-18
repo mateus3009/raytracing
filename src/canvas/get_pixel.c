@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_intersect.c                                  :+:      :+:    :+:   */
+/*   get_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 17:52:35 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/03 11:29:23 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/18 16:23:17 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./plane.h"
+#include "canvas.h"
 
-bool	plane_intersect(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t)
+t_pixel	get_pixel(t_canvas canvas, int width, int height)
 {
-
-	if (fabs(ray.direction.y) < .0001)
-		return (false);
-	*t  = (-ray.origin.y) / ray.direction.y;
-	if (*t < range.min || range.max < *t)
-		return (false);
-	return (true);
+	if (width < 0 || canvas.width < width
+		|| height < 0 || canvas.height < height)
+		return (pixel(0, 0, 0));
+	return (*(canvas.pixels + height * canvas.width + width));
 }

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 10:18:25 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 17:52:02 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@ bool	sphere_intersect(
 	t_range range,
 	double	*t)
 {
-	t_ray			ray2;
 	t_sphere_params	p;
 	double			root;
 
-	ray2 = transform_ray(ray, object.inverse_matrix);
-	p = sphere_params(ray2);
+	p = sphere_params(ray);
 	if (p.det < 0)
 		return (false);
 	root = p.x1;

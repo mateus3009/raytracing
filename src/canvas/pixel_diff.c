@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_intersect.c                                  :+:      :+:    :+:   */
+/*   pixel_diff.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 17:52:35 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/18 15:04:59 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/18 15:23:21 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./plane.h"
+#include "canvas.h"
 
-bool	plane_intersect(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t)
+double	pixel_diff(t_pixel a, t_pixel b)
 {
+	double	sqrt3;
 
-	if (fabs(ray.direction.y) < .0001)
-		return (false);
-	*t  = (-ray.origin.y) / ray.direction.y;
-	if (*t < range.min || range.max < *t)
-		return (false);
-	return (true);
+	sqrt3 = 1.73205080756887719318;
+	return (fabs(length(minus(a, b))) / sqrt3);
 }
