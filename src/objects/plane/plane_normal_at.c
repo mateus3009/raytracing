@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   plane_normal_at.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 10:16:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 10:24:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./sphere.h"
+#include "plane.h"
 
-t_object	sphere()
+t_vector	plane_normal_at(t_point object_point)
 {
-	return ((t_object){
-		.intersect = sphere_intersect,
-		.normal_at = sphere_normal_at,
-		.inverse_matrix = matrix_identity(4),
-		.material = material()
-	});
+	return (vector(0, 1, 0));
 }

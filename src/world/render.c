@@ -6,13 +6,13 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:45:02 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 18:25:58 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 09:06:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
 
-void	render(t_camera camera, t_canvas canvas, t_list *lst)
+void	render(t_camera camera, t_canvas canvas, t_list *objs)
 {
 	int		x;
 	int		y;
@@ -29,9 +29,9 @@ void	render(t_camera camera, t_canvas canvas, t_list *lst)
 		{
 			h = y / (double)(canvas.height - 1);
 			w = x / (double)(canvas.width - 1);
-			if (hit(get_ray(camera, w, h), lst, &record))
+			if (hit(get_ray(camera, w, h), objs, &record))
 			{
-				//t_tuple material_normal = divide(sum(normalize(record.normal), vector(1, 1, 1)), 2);
+				t_tuple material_normal = divide(sum(normalize(record.normal), vector(1, 1, 1)), 2);
 				t_pixel p = lighting(l, record);
 				write_pixel(canvas, x, y, p);
 			}

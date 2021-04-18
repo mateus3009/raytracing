@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 21:04:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 09:34:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	t_point		look_from;
 	t_point		look_at;
 
-	look_from = point(1, 1, -10);
+	look_from = point(-50, 50, -50);
 	look_at = point(0, 0, 0);
 	aspect_ratio = 3. / 2.;
 	canvas = canvas_init(800, 800 / aspect_ratio);
@@ -35,8 +35,9 @@ int	main(void)
 		.aperture = .1,
 		.focus_distance = length(minus(look_from, look_at))});
 	t_object a = sphere();
+	a.inverse_matrix = matrix_invert(translate(0, 0, 0));
 	t_object b = plane();
-	b.inverse_matrix = matrix_invert(translate(0, -1, 0));
+	b.inverse_matrix = matrix_invert(rotatez(degrees_to_radians(40)));
 	t_list *world = ft_lstnew(&a);
 	ft_lstadd_front(&world, ft_lstnew(&b));
 	render(cam, canvas, world);

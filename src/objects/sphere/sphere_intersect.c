@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 17:48:51 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 10:18:25 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	sphere_intersect(
 	t_object object,
 	t_ray ray,
 	t_range range,
-	t_intersection *hit)
+	double	*t)
 {
 	t_ray			ray2;
 	t_sphere_params	p;
@@ -49,15 +49,6 @@ bool	sphere_intersect(
 		if (root < range.min || range.max < root)
 			return (false);
 	}
-	hit->ray = ray;
-	hit->object = object;
-	hit->t = root;
-	hit->point = ray_at(ray, hit->t);
-	hit->normal = normalize(minus(ray_at(ray2, hit->t), point(0, 0, 0)));
-	hit->normal = normalize(matrix_product(matrix_transpose(object.inverse_matrix), hit->normal));
-	hit->normal.w = 0;
-	hit->front_face = dot(ray.direction, hit->normal) < 0;
-	if (!hit->front_face)
-		hit->normal = scalar(hit->normal, -1);
+	*t = root;
 	return (true);
 }
