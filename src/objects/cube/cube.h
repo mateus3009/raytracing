@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   objects.h                                          :+:      :+:    :+:   */
+/*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 23:43:05 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/18 23:00:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECTS_H
-# define OBJECTS_H
+#ifndef CUBE_H
+# define CUBE_H
 
-# include "objects_structs.h"
-# include "./sphere/sphere.h"
-# include "./plane/plane.h"
-# include "./cube/cube.h"
+# include "./../objects_structs.h"
 
-bool			intersect(
-	t_object obj,
+t_object		cube();
+bool			cube_intersect(
+	t_object object,
 	t_ray ray,
 	t_range range,
-	t_intersection *hit);
-t_intersection	intersection(
-	t_object object,
-	t_ray world_ray,
-	double t);
-t_vector	normal_at(
-	t_object object,
-	t_point world_point);
+	double *t);
+t_vector	cube_normal_at(
+	t_point object_point);
 
 #endif
