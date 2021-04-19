@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 18:43:42 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/19 08:24:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_tuple			clamp_tuple(t_tuple t, double min, double max);
 t_tuple			random_tuple(void);
 t_tuple			random_tuple_range(double min, double max);
 t_vector		random_unit_vector();
+t_vector		random_vector_in_unit_disk();
 
 
 #endif
