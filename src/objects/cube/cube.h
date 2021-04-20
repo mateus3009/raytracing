@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 23:00:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 17:09:35 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ bool			cube_intersect(
 	t_range range,
 	double *t);
 t_vector	cube_normal_at(
+	void *data,
 	t_point object_point);
 
 #endif

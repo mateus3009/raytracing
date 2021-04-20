@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 23:41:27 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 17:09:31 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static double	max_axis(double x, double y, double z)
 	return (z);
 }
 
-t_vector	cube_normal_at(t_point object_point)
+t_vector	cube_normal_at(void *data, t_point object_point)
 {
 	double	max;
 

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 00:16:58 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 09:46:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 		.aperture = 0,
 		.focus_distance = length(minus(look_from, look_at))});
 	t_object a = cylinder();
-	a.data = &((t_cylinder){.min = 1, .max = 2});
+	a.data = &((t_cylinder){.min = 1, .max = 2, .closed = true});
 	a.inverse_matrix = matrix_invert(rotatex(degrees_to_radians(45)));
 	t_list *world = ft_lstnew(&a);
 	render((t_job){

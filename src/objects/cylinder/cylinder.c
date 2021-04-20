@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/19 23:31:44 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 08:37:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_object	cylinder()
 		exit(1);
 	c->min = -INFINITY;
 	c->max = INFINITY;
+	c->closed = false;
 	return ((t_object){
 		.data = c,
 		.intersect = cylinder_intersect,

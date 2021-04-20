@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/19 23:52:29 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 17:08:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,27 @@ typedef struct s_cylinder
 {
 	double	min;
 	double	max;
+	bool	closed;
 }				t_cylinder;
 
 t_object		cylinder();
+bool			cylinder_intersect_body(
+	t_object object,
+	t_ray ray,
+	t_range range,
+	double *t);
+bool			cylinder_intersect_cap(
+	t_object object,
+	t_ray ray,
+	t_range range,
+	double *t);
 bool			cylinder_intersect(
 	t_object object,
 	t_ray ray,
 	t_range range,
 	double *t);
 t_vector	cylinder_normal_at(
+	void *data,
 	t_point object_point);
 
 #endif
