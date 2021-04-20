@@ -1,36 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   objects.h                                          :+:      :+:    :+:   */
+/*   cone.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 17:46:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 17:28:55 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECTS_H
-# define OBJECTS_H
+#ifndef CONE_H
+# define CONE_H
 
-# include "objects_structs.h"
-# include "./sphere/sphere.h"
-# include "./plane/plane.h"
-# include "./cube/cube.h"
-# include "./cylinder/cylinder.h"
-# include "./cone/cone.h"
+# include "./../objects_structs.h"
 
-bool			intersect(
-	t_object obj,
+typedef struct s_cone_param
+{
+	double	a;
+	double	b;
+	double	c;
+	double	d;
+	double	x1;
+	double	x2;
+}				t_cone_param;
+
+typedef struct s_cone
+{
+	double	min;
+	double	max;
+	bool	closed;
+}				t_cone;
+
+t_object		cone();
+bool			cone_intersect_body(
+	t_object object,
 	t_ray ray,
 	t_range range,
-	t_intersection *hit);
-t_intersection	intersection(
+	double *t);
+bool			cone_intersect_cap(
 	t_object object,
-	t_ray world_ray,
-	double t);
-t_vector	normal_at(
+	t_ray ray,
+	t_range range,
+	double *t);
+bool			cone_intersect(
 	t_object object,
-	t_point world_point);
+	t_ray ray,
+	t_range range,
+	double *t);
+t_vector	cone_normal_at(
+	void *data,
+	t_point object_point);
 
 #endif
