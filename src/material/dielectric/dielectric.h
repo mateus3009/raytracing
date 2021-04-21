@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   material.h                                         :+:      :+:    :+:   */
+/*   dielectric.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 11:24:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 12:54:32 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/21 00:14:32 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/21 12:47:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIAL_H
-# define MATERIAL_H
+#ifndef	DIELECTRIC_H
+# define DIELECTRIC_H
 
-# include "./material_struct.h"
-# include "./../light/light.h"
-# include "./lambertian/lambertian.h"
-# include "./phong/phong.h"
-# include "./color_normal/color_normal.h"
-# include "./metal/metal.h"
-# include "./dielectric/dielectric.h"
+# include "./../material.h"
+
+typedef struct s_dielectric
+{
+	double	refraction_ratio;
+}				t_dielectric;
+
+t_material		dielectric(double refraction_ratio);
+bool			dielectric_scatter(
+					t_material material,
+					t_ray r_in,
+					t_intersection rec,
+					t_pixel *attenuation,
+					t_ray *scattered);
 
 #endif

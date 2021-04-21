@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   material.h                                         :+:      :+:    :+:   */
+/*   dielectric.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 11:24:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 12:54:32 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/21 10:33:55 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/21 12:47:38 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIAL_H
-# define MATERIAL_H
+#include "dielectric.h"
 
-# include "./material_struct.h"
-# include "./../light/light.h"
-# include "./lambertian/lambertian.h"
-# include "./phong/phong.h"
-# include "./color_normal/color_normal.h"
-# include "./metal/metal.h"
-# include "./dielectric/dielectric.h"
+t_material	dielectric(double refraction_ratio)
+{
+	t_dielectric	*dielectric;
+	t_material		material;
 
-#endif
+	dielectric = malloc(sizeof(t_dielectric));
+	if (!dielectric)
+		exit(1);
+	dielectric->refraction_ratio = refraction_ratio;
+	material.data = dielectric;
+	material.scatter = dielectric_scatter;
+	return (material);
+}
