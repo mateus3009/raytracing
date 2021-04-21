@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:52:59 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 12:17:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 
 bool	metal_scatter(
 	t_material material,
-	t_ray r_in,
+	t_ray in,
 	t_intersection rec,
 	t_pixel *attenuation,
 	t_ray *scattered)
 {
-	*attenuation = divide(sum(normalize(rec.normal), vector(1, 1, 1)), 2);
-	return (false);
+	t_metal		metal;
+	t_vector	reflected;
+
+	metal = *(t_metal*)material.data;
+	reflected = reflect(normalize(in.direction), rec.normal);
+	*scattered = ray(rec.point,
+		sum(reflected, scalar(random_in_unit_sphere(), metal.fuzz)));
+	*attenuation = metal.albedo;
+	return (dot(reflected, rec.normal) > 0);
 }

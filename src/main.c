@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:51:24 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 12:24:17 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	t_point		look_from;
 	t_point		look_at;
 
-	look_from = point(0, 1, 10);
+	look_from = point(-5, 5, 10);
 	look_at = point(0, 0, -1);
 	aspect_ratio = 3. / 2.;
 	canvas = canvas_init(400, 400 / aspect_ratio);
@@ -41,7 +41,7 @@ int	main(void)
 	c.material = lambertian(pixel(.5, .5, .5));
 	t_object s1 = sphere();
 	s1.inverse_matrix = matrix_invert(translate(0, 1, 0));
-	s1.material = lambertian(pixel(.7, .7, .7));
+	s1.material = metal(pixel(.7, .7, .7), .3);
 	t_object s2 = sphere();
 	s2.inverse_matrix = matrix_invert(translate(2, 1, 0));
 	s2.material = lambertian(pixel(.8, .8, .8));
@@ -56,7 +56,7 @@ int	main(void)
 		.objects = world,
 		.min_samples_per_pixel = 30,
 		.max_samples_per_pixel = 90,
-		.depth = 50
+		.depth = 100
 	});
 	canvas_to_ppm(canvas);
 	return (0);
