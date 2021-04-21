@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 22:06:15 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 11:11:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
-# include "./../objects_structs.h"
+# include "./../objects.h"
 
 t_object	cube(void);
 bool		cube_intersect(

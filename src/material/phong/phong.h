@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_unit_vector.c                               :+:      :+:    :+:   */
+/*   phong.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/18 18:36:37 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 22:37:05 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/21 10:28:32 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/21 11:06:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tuple.h"
+#ifndef PHONG_H
+# define PHONG_H
 
-t_vector	random_unit_vector(void)
+# include "./../material.h"
+
+/*
+** ambient		[0, 1]
+** diffuse		[0, 1]
+** specular		[0, 1]
+** shininess	[10, 200]
+*/
+
+typedef struct s_phong
 {
-	t_vector	v;
+	t_pixel	color;
+	double	ambient;
+	double	diffuse;
+	double	specular;
+	double	shininess;
+}				t_phong;
 
-	while (true)
-	{
-		v = random_tuple_range(-1, 1);
-		if (length(v) >= 1)
-			continue ;
-		v.w = 0;
-		return (v);
-	}
-}
+t_phong			phong(void);
+
+#endif

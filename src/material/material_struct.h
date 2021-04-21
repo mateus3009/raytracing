@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.c                                         :+:      :+:    :+:   */
+/*   material_struct.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:18:51 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/17 11:24:35 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/21 11:05:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cylinder.h"
+#ifndef MATERIAL_STRUCT_H
+# define MATERIAL_STRUCT_H
 
-t_object	cylinder(void)
+# include "./../tuple/tuple.h"
+# include "./../ray/ray.h"
+
+struct s_intersection;
+
+typedef struct s_intersection	t_intersection;
+
+typedef struct s_material
 {
-	t_cylinder	*c;
+	void	*data;
+	bool	(*scatter)(
+			struct s_material material,
+			t_ray r_in,
+			t_intersection rec,
+			t_pixel *attenuation,
+			t_ray *scattered);
+}								t_material;
 
-	c = malloc(sizeof(t_cylinder));
-	if (!c)
-		exit(1);
-	c->min = -INFINITY;
-	c->max = INFINITY;
-	c->closed = false;
-	return ((t_object){
-		.data = c,
-		.intersect = cylinder_intersect,
-		.normal_at = cylinder_normal_at,
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()
-	});
-}
+#endif

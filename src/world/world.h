@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 21:37:52 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 11:23:36 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct s_job
 	t_camera	camera;
 	t_canvas	canvas;
 	t_list		*objects;
-	int			samples_per_pixel;
+	int			min_samples_per_pixel;
+	int			max_samples_per_pixel;
 	int			depth;
 }				t_job;
 

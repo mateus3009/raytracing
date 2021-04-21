@@ -6,20 +6,20 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 21:51:53 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 11:08:40 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light.h"
+#include "phong.h"
 
 static t_pixel	lighting_ambient(
 	t_light light,
 	t_intersection hit)
 {
-	t_material	material;
-	t_pixel		partial;
+	t_phong	material;
+	t_pixel	partial;
 
-	material = hit.object.material;
+	material = *(t_phong*)hit.object.material.data;
 	partial = product(material.color, light.intensity);
 	return (scalar(partial, material.ambient));
 }
@@ -28,12 +28,12 @@ static t_pixel	lighting_diffuse(
 	t_light light,
 	t_intersection hit)
 {
-	t_material	material;
+	t_phong		material;
 	t_pixel		partial;
 	t_vector	light_direction;
 	double		light_dot_normal;
 
-	material = hit.object.material;
+	material = *(t_phong*)hit.object.material.data;
 	partial = product(material.color, light.intensity);
 	light_direction = normalize(minus(light.origin, hit.point));
 	light_dot_normal = dot(light_direction, hit.normal);
@@ -46,11 +46,11 @@ static t_pixel	lighting_specular(
 	t_light light,
 	t_intersection hit)
 {
-	t_material	material;
+	t_phong		material;
 	t_vector	light_direction;
 	double		reflect_dot_eye;
 
-	material = hit.object.material;
+	material = *(t_phong*)hit.object.material.data;
 	light_direction = normalize(minus(light.origin, hit.point));
 	reflect_dot_eye = dot(
 			reflect(scalar(light_direction, -1), hit.normal),

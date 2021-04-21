@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 22:07:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 11:11:22 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CYLINDER_H
 # define CYLINDER_H
 
-# include "./../objects_structs.h"
+# include "./../objects.h"
 
 typedef struct s_cylinder_param
 {

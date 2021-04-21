@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.c                                         :+:      :+:    :+:   */
+/*   metal.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:18:51 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/21 10:33:55 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/21 11:52:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cylinder.h"
+#include "metal.h"
 
-t_object	cylinder(void)
+t_material	metal(void)
 {
-	t_cylinder	*c;
+	t_material		material;
 
-	c = malloc(sizeof(t_cylinder));
-	if (!c)
-		exit(1);
-	c->min = -INFINITY;
-	c->max = INFINITY;
-	c->closed = false;
-	return ((t_object){
-		.data = c,
-		.intersect = cylinder_intersect,
-		.normal_at = cylinder_normal_at,
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()
-	});
+	material.data = NULL;
+	material.scatter = metal_scatter;
+	return (material);
 }
