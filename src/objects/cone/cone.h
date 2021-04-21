@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 17:28:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:58:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ typedef struct s_cone
 	bool	closed;
 }				t_cone;
 
-t_object		cone();
+t_object		cone(void);
 bool			cone_intersect_body(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t);
+					t_object object,
+					t_ray ray,
+					t_range range,
+					double *t);
 bool			cone_intersect_cap(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t);
+					t_object object,
+					t_ray ray,
+					t_range range,
+					double *t);
 bool			cone_intersect(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t);
-t_vector	cone_normal_at(
-	void *data,
-	t_point object_point);
+					t_object object,
+					t_ray ray,
+					t_range range,
+					double *t);
+t_vector		cone_normal_at(
+					void *data,
+					t_point object_point);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 21:11:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:54:17 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static double	product_value(t_matrix a, t_tuple_array b, int x, int row)
 	return (result);
 }
 
-t_tuple			matrix_product(t_matrix a, t_tuple b)
+t_tuple	matrix_product(t_matrix a, t_tuple b)
 {
 	t_tuple_array	result;
 	int				row;

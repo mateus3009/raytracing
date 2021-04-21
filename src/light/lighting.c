@@ -6,18 +6,18 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/17 17:52:03 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:51:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "light.h"
+#include "light.h"
 
 static t_pixel	lighting_ambient(
 	t_light light,
 	t_intersection hit)
 {
 	t_material	material;
-	t_pixel	partial;
+	t_pixel		partial;
 
 	material = hit.object.material;
 	partial = product(material.color, light.intensity);
@@ -53,19 +53,19 @@ static t_pixel	lighting_specular(
 	material = hit.object.material;
 	light_direction = normalize(minus(light.origin, hit.point));
 	reflect_dot_eye = dot(
-		reflect(scalar(light_direction, -1), hit.normal),
-		normalize(scalar(hit.ray.direction, -1)));
+			reflect(scalar(light_direction, -1), hit.normal),
+			normalize(scalar(hit.ray.direction, -1)));
 	if (reflect_dot_eye <= 0)
 		return (pixel(0, 0, 0));
 	return (scalar(light.intensity,
-		material.specular * pow(reflect_dot_eye, material.shininess)));
+			material.specular * pow(reflect_dot_eye, material.shininess)));
 }
 
 t_pixel	lighting(
 	t_light light,
 	t_intersection hit)
 {
-	t_pixel result;
+	t_pixel	result;
 	t_pixel	ambient;
 	t_pixel	diffuse;
 	t_pixel	specular;

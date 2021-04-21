@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 17:09:04 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:14:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ typedef struct s_sphere_params
 	double		x2;
 }				t_sphere_params;
 
-t_object		sphere();
+t_object		sphere(void);
 bool			sphere_intersect(
-	t_object object,
-	t_ray ray,
-	t_range range,
-	double *t);
-t_vector	sphere_normal_at(
-	void *data,
-	t_point object_point);
+					t_object object,
+					t_ray ray,
+					t_range range,
+					double *t);
+t_vector		sphere_normal_at(
+					void *data,
+					t_point object_point);
 
 #endif

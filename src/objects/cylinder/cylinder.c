@@ -6,13 +6,13 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 08:37:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:07:38 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cylinder.h"
 
-t_object	cylinder()
+t_object	cylinder(void)
 {
 	t_cylinder	*c;
 

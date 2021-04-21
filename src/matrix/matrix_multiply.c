@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_product.c                                   :+:      :+:    :+:   */
+/*   matrix_multiply.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 18:29:16 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:54:29 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static double	product_value(t_matrix a, t_matrix b, int x, int y)
 	return (result);
 }
 
-t_matrix		matrix_multiply(t_matrix a, t_matrix b)
+t_matrix	matrix_multiply(t_matrix a, t_matrix b)
 {
 	t_matrix	result;
 	int			row;

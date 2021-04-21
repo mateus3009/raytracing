@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 09:16:31 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/04 10:08:42 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:31:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_matrix	shearing(t_shearing p)
 {
 	return ((t_matrix){.size = 4, .values = {
-		{1, p.xy, p.xz, 0},
-		{p.yx, 1, p.yz, 0},
-		{p.zx, p.zy, 1, 0},
-		{0, 0, 0, 1}}});
+			{1, p.xy, p.xz, 0},
+			{p.yx, 1, p.yz, 0},
+			{p.zx, p.zy, 1, 0},
+			{0, 0, 0, 1}}});
 }

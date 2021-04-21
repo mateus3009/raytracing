@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:45:02 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 16:56:44 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:41:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	render(t_job job)
 {
-	int		x;
-	int		y;
-	double	w;
-	double	h;
-	t_intersection	record;
-	int		samples;
+	int				x;
+	int				y;
+	double			w;
+	double			h;
 
-	t_light l = light(pixel(1, 1, 1), point(-10, 10, -10));
 	y = job.canvas.height;
 	while (--y >= 0)
 	{

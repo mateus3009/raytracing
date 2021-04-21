@@ -12,7 +12,7 @@
 
 #include "cone.h"
 
-bool		cone_intersect(
+bool	cone_intersect(
 	t_object object,
 	t_ray ray,
 	t_range range,

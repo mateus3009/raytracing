@@ -23,16 +23,13 @@ static void	swap(double *a, double *b)
 
 static bool	get_roots(t_ray ray, t_range range, t_cone_param *p)
 {
-	p->a = ray.direction.x * ray.direction.x
-		- ray.direction.y * ray.direction.y
-		+ ray.direction.z * ray.direction.z;
-	p->b = 2  * ray.origin.x * ray.direction.x
-		- 2 * ray.origin.y * ray.direction.y
-		+ 2 * ray.origin.z * ray.direction.z;
+	p->a = ray.direction.x * ray.direction.x - ray.direction.y
+		* ray.direction.y + ray.direction.z * ray.direction.z;
+	p->b = 2 * ray.origin.x * ray.direction.x - 2 * ray.origin.y
+		* ray.direction.y + 2 * ray.origin.z * ray.direction.z;
 	if (fabs(p->a) < .0001 && fabs(p->b) < 0.0001)
 		return (false);
-	p->c = ray.origin.x * ray.origin.x
-		- ray.origin.y * ray.origin.y
+	p->c = ray.origin.x * ray.origin.x - ray.origin.y * ray.origin.y
 		+ ray.origin.z * ray.origin.z;
 	if (fabs(p->a) < .0001)
 	{
@@ -47,10 +44,11 @@ static bool	get_roots(t_ray ray, t_range range, t_cone_param *p)
 	p->x2 = (-p->b + sqrt(p->d)) / (2. * p->a);
 	if (p->x1 > p->x2)
 		swap(&p->x1, &p->x2);
-	return ((range.min < p->x1 && p->x1 < range.max) || (range.min < p->x2 && p->x2 < range.max));
+	return ((range.min < p->x1 && p->x1 < range.max)
+		|| (range.min < p->x2 && p->x2 < range.max));
 }
 
-static bool check_roots(t_ray ray, t_cone_param p, t_cone c, double *t)
+static bool	check_roots(t_ray ray, t_cone_param p, t_cone c, double *t)
 {
 	bool	valid;
 	double	y;
@@ -72,7 +70,7 @@ static bool check_roots(t_ray ray, t_cone_param p, t_cone c, double *t)
 	return (valid);
 }
 
-bool		cone_intersect_body(
+bool	cone_intersect_body(
 	t_object object,
 	t_ray ray,
 	t_range range,
@@ -81,10 +79,10 @@ bool		cone_intersect_body(
 	t_cone			c;
 	t_cone_param	p;
 
-	c = *(t_cone*)object.data;
+	c = *(t_cone *)object.data;
 	if (!get_roots(ray, range, &p))
 		return (false);
-	if(!check_roots(ray, p, c, t))
+	if (!check_roots(ray, p, c, t))
 		return (false);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 17:06:45 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:29:26 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 # include "./../matrix/matrix.h"
 # include "./../material/material.h"
 
-struct s_object;
-struct s_hit_range;
-struct s_intersection;
+struct							s_object;
+struct							s_hit_range;
+struct							s_intersection;
 
-typedef struct s_object t_object;
-typedef struct s_hit_range t_range;
-typedef struct s_intersection t_intersection;
+typedef struct s_object			t_object;
+typedef struct s_hit_range		t_range;
+typedef struct s_intersection	t_intersection;
 
 typedef struct s_object
 {
@@ -33,14 +33,14 @@ typedef struct s_object
 	t_matrix	inverse_matrix;
 	t_material	material;
 	bool		(*intersect)(
-		t_object object,
-		t_ray ray,
-		t_range range,
-		double *t);
+					t_object object,
+					t_ray ray,
+					t_range range,
+					double *t);
 	t_vector	(*normal_at)(
-		void *data,
-		t_point object_point);
-}				t_object;
+					void *data,
+					t_point object_point);
+}								t_object;
 
 typedef struct s_hit_range
 {
@@ -56,6 +56,6 @@ typedef struct s_intersection
 	t_vector	normal;
 	t_ray		ray;
 	double		t;
-}				t_intersection;
+}								t_intersection;
 
 #endif

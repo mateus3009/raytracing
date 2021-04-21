@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:18:57 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 21:35:46 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:40:20 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	hit(t_ray ray, t_list *objs, t_intersection *rec)
 	range = (t_range){.min = .0001, .max = INFINITY};
 	while (objs)
 	{
-		if (intersect(*(t_object*)objs->content, ray, range, &temp))
+		if (intersect(*(t_object *)objs->content, ray, range, &temp))
 		{
 			hit_something = true;
 			range.max = temp.t;

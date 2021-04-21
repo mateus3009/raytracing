@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 11:28:30 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 15:07:33 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:48:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ typedef struct s_canvas
 
 t_canvas		canvas_init(int width, int height);
 void			canvas_destroy(t_canvas canvas);
-void			write_pixel(t_canvas canvas, int width, int height, t_pixel pixel);
+void			write_pixel(
+					t_canvas canvas,
+					int width,
+					int height,
+					t_pixel pixel);
 void			canvas_to_ppm(t_canvas canvas);
 t_pixel			get_pixel(t_canvas canvas, int width, int height);
 double			pixel_diff(t_pixel a, t_pixel b);

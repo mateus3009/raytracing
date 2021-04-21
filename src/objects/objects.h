@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 17:46:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:26:28 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@
 # include "./cone/cone.h"
 
 bool			intersect(
-	t_object obj,
-	t_ray ray,
-	t_range range,
-	t_intersection *hit);
+					t_object obj,
+					t_ray ray,
+					t_range range,
+					t_intersection *hit);
 t_intersection	intersection(
-	t_object object,
-	t_ray world_ray,
-	double t);
-t_vector	normal_at(
-	t_object object,
-	t_point world_point);
+					t_object object,
+					t_ray world_ray,
+					double t);
+t_vector		normal_at(
+					t_object object,
+					t_point world_point);
 
 #endif

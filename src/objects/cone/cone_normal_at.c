@@ -15,9 +15,9 @@
 t_vector	cone_normal_at(void	*data, t_point point)
 {
 	t_cone	cone;
-	double		distance;
+	double	distance;
 
-	cone = *(t_cone*)data;
+	cone = *(t_cone *)data;
 	distance = point.x * point.x + point.z * point.z;
 	if (distance < 1 && point.y >= cone.max - .0001)
 		return (vector(0, 1, 0));

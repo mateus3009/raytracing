@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:29:55 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 18:04:27 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:56:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ static bool	check_cap(t_ray ray, double t, double radius)
 	return (x * x + z * z <= fabs(radius));
 }
 
-bool		cone_intersect_cap(
+bool	cone_intersect_cap(
 	t_object object,
 	t_ray ray,
 	t_range range,
 	double *t)
 {
-	bool		is_valid;
+	bool	is_valid;
 	t_cone	c;
-	double		root;
+	double	root;
 
 	*t = INFINITY;
 	is_valid = false;
-	c = *(t_cone*)object.data;
+	c = *(t_cone *)object.data;
 	if (!c.closed || fabs(ray.direction.y) < .0001)
 		return (false);
 	root = (c.min - ray.origin.y) / ray.direction.y;
@@ -44,7 +44,7 @@ bool		cone_intersect_cap(
 		is_valid = true;
 	}
 	root = (c.max - ray.origin.y) / ray.direction.y;
-	if (check_cap(ray, root, c.max) &&  root < *t)
+	if (check_cap(ray, root, c.max) && root < *t)
 	{
 		*t = root;
 		is_valid = true;
