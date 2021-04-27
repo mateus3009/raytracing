@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 22:16:32 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/27 14:00:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <assert.h>
 
 int	main(void)
-{
+{/*
 	double		aspect_ratio;
 	t_camera	cam;
 	t_canvas	canvas;
@@ -87,6 +87,7 @@ int	main(void)
 		.depth = 100
 	});
 	//canvas_to_ppm(canvas);
-	canvas_to_bmp(canvas, "./output.bmp");
+	canvas_to_bmp(canvas, "./output.bmp");*/
+	teste();
 	return (0);
 }
