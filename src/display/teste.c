@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   teste.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:55:46 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 23:39:01 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/27 18:44:24 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "window.h"
+#include "display.h"
 
 typedef struct s_destroy
 {
