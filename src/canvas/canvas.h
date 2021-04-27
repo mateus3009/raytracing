@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 11:28:30 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/20 21:48:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 19:57:19 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CANVAS_H
 
 # include "./../util/util.h"
-
 # include "./../tuple/tuple.h"
 
 typedef struct s_canvas
@@ -34,5 +33,5 @@ void			write_pixel(
 void			canvas_to_ppm(t_canvas canvas);
 t_pixel			get_pixel(t_canvas canvas, int width, int height);
 double			pixel_diff(t_pixel a, t_pixel b);
-
+void			canvas_to_bmp(t_canvas canvas, char *filename);
 #endif

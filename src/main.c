@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 14:05:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 22:16:32 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	t_point		look_from;
 	t_point		look_at;
 
-	look_from = point(-5, 1.5, 7);
+	look_from = point(-5, 2, 7);
 	look_at = point(0, 0, -1);
 	aspect_ratio = 3. / 2.;
 	canvas = canvas_init(400, 400 / aspect_ratio);
@@ -86,6 +86,7 @@ int	main(void)
 		.max_samples_per_pixel = 200,
 		.depth = 100
 	});
-	canvas_to_ppm(canvas);
+	//canvas_to_ppm(canvas);
+	canvas_to_bmp(canvas, "./output.bmp");
 	return (0);
 }

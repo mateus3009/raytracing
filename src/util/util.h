@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 11:02:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/21 19:23:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <float.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <fcntl.h>
 
 # define PI 3.14159265358979323846
 
