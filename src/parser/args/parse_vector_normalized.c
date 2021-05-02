@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_print.c                                     :+:      :+:    :+:   */
+/*   parse_vector_normalized.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 18:49:27 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/01 20:22:29 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/01 20:38:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "matrix.h"
+#include "parser_args.h"
+#include "./../../tuple/tuple.h"
 
-void	matrix_print(t_matrix m)
+bool	parse_vector_normalized(char *in, void **result)
 {
-	int			row;
-	int			column;
-
-	ft_printf("size: %d\n", m.size);
-	row = 0;
-	while (row < m.size)
+	if (!parse_vector(in, result))
+		return (false);
+	if (length(**(t_vector**)result) > 1)
 	{
-		column = 0;
-		while (column < m.size)
-		{
-			ft_printf("%.f\t", m.values[row][column]);
-			column++;
-		}
-		ft_printf("\n");
-		row++;
+		free(*result);
+		return	(false);
 	}
+	return (true);
 }

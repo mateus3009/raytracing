@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 19:23:15 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/01 17:18:17 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <fcntl.h>
+# include <errno.h>
 
 # define PI 3.14159265358979323846
 
@@ -32,5 +33,8 @@ double	ft_rand(void);
 void	ft_srand(unsigned long long int seed);
 double	clamp(double value, double min, double max);
 double	ft_rand_range(double min, double max);
+int		count_strtoken(char	**tokens);
+void	free_strtoken(char	***tokens);
+void	fatal(char	*msg);
 
 #endif

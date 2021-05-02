@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:00:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/15 21:24:12 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/30 21:22:48 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_camera_param
 	double		focus_distance;
 }				t_camera_param;
 
-t_camera		camera(t_camera_param c);
+t_camera		*camera(t_camera_param c);
 t_ray			get_ray(t_camera camera, double x, double y);
 
 #endif

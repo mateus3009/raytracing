@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:55:46 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 18:44:24 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/04/27 18:49:43 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	teste()
 
 	mlx_ptr = mlx_init();
 	if (!mlx_ptr)
-		printf("Nao foi possivel inicializar o mlx");
+		ft_printf("Nao foi possivel inicializar o mlx");
 	mlx_win = mlx_new_window(mlx_ptr, 300, 300, "teste");
 	mlx_hook(mlx_win, 33, 1L << 17, destroy, &(t_destroy){.ptr = mlx_ptr, .win = mlx_win});
 	//mlx_hook(mlx_win, 2, 1L << 0, destroy, &(t_destroy){.ptr = mlx_ptr, .win = mlx_win});

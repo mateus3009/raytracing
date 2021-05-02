@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_print.c                                     :+:      :+:    :+:   */
+/*   fatal.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 18:49:27 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/29 22:19:07 by msales-a          #+#    #+#             */
+/*   Updated: 2021/04/30 18:46:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "matrix.h"
+#include "util.h"
 
-void	matrix_print(t_matrix m)
+void	fatal(char	*msg)
 {
-	int			row;
-	int			column;
-
-	ft_printf("size: %d\n", m.size);
-	row = 0;
-	while (row < m.size)
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	if (msg)
 	{
-		column = 0;
-		while (column < m.size)
-		{
-			ft_printf("%.f\t", m.values[row][column]);
-			column++;
-		}
-		ft_printf("\n");
-		row++;
+		ft_putstr_fd(msg, STDERR_FILENO);
+		ft_putchar_fd('\n', STDERR_FILENO);
 	}
+	exit(EXIT_FAILURE);
 }

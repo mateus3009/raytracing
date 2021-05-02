@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_print.c                                     :+:      :+:    :+:   */
+/*   parser_lines.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 18:49:27 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/01 21:28:16 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/01 21:47:44 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "matrix.h"
+#ifndef PARSER_LINES_H
+# define PARSER_LINES_H
 
-void	matrix_print(t_matrix m)
-{
-	int			row;
-	int			column;
+# include "./../parser.h"
+# include "./../../camera/camera.h"
 
-	ft_printf("size: %d\n", m.size);
-	row = 0;
-	while (row < m.size)
-	{
-		column = 0;
-		while (column < m.size)
-		{
-			ft_printf("%.f\t", m.values[row][column]);
-			column++;
-		}
-		ft_printf("\n");
-		row++;
-	}
-}
+bool	parse_camera(t_rt_data *data, void	**argv);
+
+#endif

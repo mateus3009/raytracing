@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_print.c                                     :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 16:14:50 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 18:49:27 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/01 19:47:43 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/01 23:16:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "matrix.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-void	matrix_print(t_matrix m)
-{
-	int			row;
-	int			column;
+# include "./parser_struct.h"
+# include "./args/parser_args.h"
+# include "./lines/parser_lines.h"
 
-	ft_printf("size: %d\n", m.size);
-	row = 0;
-	while (row < m.size)
-	{
-		column = 0;
-		while (column < m.size)
-		{
-			ft_printf("%.f\t", m.values[row][column]);
-			column++;
-		}
-		ft_printf("\n");
-		row++;
-	}
-}
+bool	find_parser(char *id, int argc, t_rt_parser *parser);
+bool	process_args(int argc,
+			char **argv,
+			t_rt_arg_parser *parsers,
+			void ***results);
+bool	process_line(t_rt_data *data, char *line);
+bool	process_file(char *filename, t_rt_data *data);
+
+#endif

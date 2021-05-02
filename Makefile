@@ -6,7 +6,7 @@
 #    By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/02 18:57:50 by msales-a          #+#    #+#              #
-#    Updated: 2021/04/20 22:43:47 by msales-a         ###   ########.fr        #
+#    Updated: 2021/05/01 13:55:36 by msales-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJECTS := $(addprefix target/,$(SOURCES:.c=.o))
 
 LIBRARIES = ./lib/libft/libft.a ./lib/minilibx-linux/libmlx.a
 
-CC := clang -O3
+CC := clang
 
 CC_FLAGS := -Wall -Wextra -Werror -g -lm -L./lib/libft -lft -L./lib/minilibx-linux -lmlx -lXext -lX11 -lbsd
 
