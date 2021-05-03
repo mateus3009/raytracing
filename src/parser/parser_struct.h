@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:47:43 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 18:29:56 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 20:17:56 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PARSER_STRUCT_H
 
 # include "./../util/util.h"
+# include "./../tuple/tuple.h"
 
 typedef struct s_resolution
 {
