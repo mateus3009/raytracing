@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 09:15:44 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 09:28:29 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:56:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ t_matrix	rotatez(double radians);
 t_matrix	shearing(t_shearing p);
 t_matrix	rotation_quaternion(t_quaternion q);
 t_matrix	rotatexyz(double x, double y, double z);
+t_matrix	from_to_rotation(t_vector a, t_vector b);
 
 #endif
