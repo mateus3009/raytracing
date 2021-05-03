@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:47:43 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 19:53:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:29:56 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@ typedef struct s_resolution
 	unsigned int	height;
 }				t_resolution;
 
+typedef struct s_ambient_light
+{
+	double	ratio;
+	t_pixel	color;
+}				t_ambient_light;
+
 typedef struct s_rt_data
 {
 	t_resolution	resolution;
+	t_ambient_light	ambient;
 	t_list			*cameras;
 	t_list			*objects;
 }				t_rt_data;
