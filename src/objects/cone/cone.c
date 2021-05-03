@@ -6,28 +6,34 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 15:22:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/02 11:36:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cone.h"
 
-t_object	cone(void)
+bool	cone(t_object *obj)
 {
-	t_cone	*c;
+	t_cone		*c;
 
 	c = malloc(sizeof(t_cone));
 	if (!c)
-		exit(1);
+		return (false);
 	c->min = -INFINITY;
 	c->max = INFINITY;
 	c->closed = false;
-	return ((t_object){
+	obj = malloc(sizeof(t_object));
+	if (!obj)
+	{
+		free(c);
+		return (false);
+	}
+	*obj = (t_object){
 		.data = c,
 		.intersect = cone_intersect,
 		.normal_at = cone_normal_at,
 		.matrix = matrix_identity(4),
 		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()
-	});
+		.material = color_normal()};
+	return (true);
 }

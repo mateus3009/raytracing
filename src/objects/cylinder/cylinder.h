@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:11:22 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/02 11:40:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_cylinder
 	bool	closed;
 }				t_cylinder;
 
-t_object		cylinder(void);
+bool			cylinder(t_object *obj);
 bool			cylinder_intersect_body(
 					t_object object,
 					t_ray ray,

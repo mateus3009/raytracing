@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.c                                         :+:      :+:    :+:   */
+/*   parse_sphere.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/02 11:39:59 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/02 11:51:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cylinder.h"
+#include "parser_lines.h"
 
-bool	cylinder(t_object *obj)
+bool	parse_sphere(t_rt_data *data, void	**args)
 {
-	t_cylinder	*c;
+	t_object	*obj;
+	t_point		origin;
+	double		radius;
+	t_pixel		color;
 
-	c = malloc(sizeof(t_cylinder));
-	if (!c)
+	if (!sphere(obj))
 		return (false);
-	c->min = -INFINITY;
-	c->max = INFINITY;
-	c->closed = false;
-	obj = malloc(sizeof(t_object));
-	if (!obj)
-		return (false);
-	*obj = (t_object){
-		.data = c,
-		.intersect = cylinder_intersect,
-		.normal_at = cylinder_normal_at,
-		.matrix = matrix_identity(4),
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()};
+	origin = *(t_point*)args[0];
+	radius = *(double*)args[1];
+	color = *(t_pixel*)args[2];
+	add_transformation(obj, translate(origin.x, origin.y, origin.z));
+	add_transformation(obj, scaling(radius, radius, radius));
 	return (true);
 }

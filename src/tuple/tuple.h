@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 12:43:48 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 09:11:07 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef union u_tuple
 		double	b;
 		double	a;
 	};
+	double	value[4];
 }				t_tuple;
 
 typedef t_tuple	t_vector;
@@ -38,6 +39,8 @@ typedef t_tuple	t_vector;
 typedef t_tuple	t_point;
 
 typedef t_tuple	t_pixel;
+
+typedef t_tuple	t_quaternion;
 
 t_tuple			tuple(double x, double y, double z, double w);
 t_vector		vector(double x, double y, double z);
@@ -64,5 +67,8 @@ t_vector		random_vector_in_unit_disk(void);
 t_vector		random_in_hemispere(t_vector normal);
 bool			near_zero(t_tuple t);
 t_vector		refract(t_vector in, t_vector n, double ratio);
+double			vectors_angle(t_vector a, t_vector b);
+t_tuple			quaternion(double a, t_vector v);
+void			print_tuple(t_tuple t);
 
 #endif

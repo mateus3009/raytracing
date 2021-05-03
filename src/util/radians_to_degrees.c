@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.h                                             :+:      :+:    :+:   */
+/*   radians_to_degrees.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/02 11:38:34 by msales-a         ###   ########.fr       */
+/*   Created: 2021/04/04 09:28:25 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/02 12:26:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#include "util.h"
 
-# include "./../objects.h"
-
-bool		cube(t_object *obj);
-bool		cube_intersect(
-				t_object object,
-				t_ray ray,
-				t_range range,
-				double *t);
-t_vector	cube_normal_at(
-				void *data,
-				t_point object_point);
-
-#endif
+double	radians_to_degrees(double radians)
+{
+	return (radians * (180 / PI));
+}

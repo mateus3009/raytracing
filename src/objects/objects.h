@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 15:21:24 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/02 11:49:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_vector		normal_at(
 					t_object object,
 					t_point world_point);
 void			add_transformation(
-					t_object object,
+					t_object *object,
 					t_matrix matrix);
 
 #endif

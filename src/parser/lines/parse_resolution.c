@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.h                                             :+:      :+:    :+:   */
+/*   parse_resolution.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/02 11:38:34 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/02 13:03:04 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#include "parser_lines.h"
 
-# include "./../objects.h"
+bool	parse_resolution(t_rt_data *data, void **argv)
+{
+	int	width;
+	int	height;
 
-bool		cube(t_object *obj);
-bool		cube_intersect(
-				t_object object,
-				t_ray ray,
-				t_range range,
-				double *t);
-t_vector	cube_normal_at(
-				void *data,
-				t_point object_point);
+	width = *(int*)argv[0];
+	height = *(int*)argv[1];
 
-#endif
+	if (width <= 0 || height <= 0)
+		return (false);
+	data->resolution.width = width;
+	data->resolution.height = height;
+	return (true);
+}

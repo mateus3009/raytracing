@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:04:54 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/03 10:16:39 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 09:06:12 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 bool	tuple_equal(t_tuple a, t_tuple b)
 {
 	return (
-		a.x == b.x
-		&& a.y == b.y
-		&& a.z == b.z
-		&& a.w == b.w);
+		fabs(a.x - b.x) < .0000001
+		&& fabs(a.y - b.y) < .0000001
+		&& fabs(a.z - b.z) < .0000001
+		&& fabs(a.w - b.w) < .0000001);
 }
