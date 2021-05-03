@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 18:07:29 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:12:12 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 			parse_color}},
 	{.id = "cy",
 		.argc = 5,
-		.line_parser = NULL,
+		.line_parser = parse_cylinder,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_point,
 			parse_vector,

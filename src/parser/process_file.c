@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 22:17:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 17:32:01 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:14:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,9 @@ bool	process_file(char *filename, t_rt_data *data)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (false);
+	data->resolution.width = 0;
+	data->resolution.height = 0;
+	data->cameras = NULL;
+	data->objects = NULL;
 	return (process_lines(fd, data));
 }
