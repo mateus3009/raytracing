@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 20:22:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 22:01:00 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:50:41 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ bool	parse_tuple(char *in, void **result)
 {
 	char	**argv;
 	int		argc;
+	double	*nbrs;
 
 	argv = ft_split(in, ',');
 	argc = count_strtoken(argv);
@@ -25,11 +26,17 @@ bool	parse_tuple(char *in, void **result)
 		free_strtoken(&argv);
 		return (false);
 	}
+	nbrs = (double[]){ft_atof(argv[0]), ft_atof(argv[1]), ft_atof(argv[2])};
+	if (isnan(nbrs[0]) || isnan(nbrs[1]) || isnan(nbrs[2]))
+	if (argc != 3)
+	{
+		free_strtoken(&argv);
+		return (false);
+	}
 	*result = malloc(sizeof(t_tuple));
 	if (!*result)
 		return (false);
-	**(t_tuple**)result = tuple(ft_atof(argv[0]),
-		ft_atof(argv[1]), ft_atof(argv[2]), 0);
+	**(t_tuple**)result = tuple(nbrs[0], nbrs[1], nbrs[2], 0);
 	free_strtoken(&argv);
 	return (true);
 }

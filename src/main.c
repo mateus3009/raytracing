@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 09:13:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 09:39:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	print_tuple(a);
 	printf("\n");
 
-	b = matrix_product(rotatez(degrees_to_radians(90)), a);
+	b = matrix_product(rotatexyz(degrees_to_radians(20), degrees_to_radians(30), degrees_to_radians(-10)), a);
 	printf("b\n");
 	print_tuple(b);
 	printf("\n");

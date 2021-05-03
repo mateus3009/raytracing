@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 23:50:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:51:46 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 		.line_parser = parse_camera,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_point,
-			parse_vector_normalized,
+			parse_vector,
 			parse_double}},
 	NULL};
 

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 20:06:51 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 20:46:54 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:40:41 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ bool	parse_tuple(char *in, void **result);
 bool	parse_color(char *in, void **result);
 bool	parse_vector(char *in, void **result);
 bool	parse_double(char *in, void **result);
-bool	parse_vector_normalized(char *in, void **result);
 bool	parse_point(char *in, void **result);
 
 #endif
