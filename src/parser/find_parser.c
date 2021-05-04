@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 19:05:51 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 19:37:12 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 	{.id = "sq",
 		.argc = 4,
 		.line_parser = parse_square,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_point,
+			parse_vector,
+			parse_double,
+			parse_color}},
+	{.id = "dk",
+		.argc = 4,
+		.line_parser = parse_disk,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_point,
 			parse_vector,
