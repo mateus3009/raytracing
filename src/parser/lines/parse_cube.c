@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 20:15:58 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 21:25:41 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	parse_cube(t_rt_data *data, void	**args)
 	double		size;
 	t_list		*temp;
 
-	if (!plane(obj))
+	if (!cube(&obj))
 		return (false);
 	origin = *(t_point*)args[0];
 	size = *(double*)args[1] / 2;

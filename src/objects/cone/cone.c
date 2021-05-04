@@ -6,13 +6,13 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 20:04:47 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 21:23:18 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cone.h"
 
-bool	cone(t_object *obj)
+bool	cone(t_object **obj)
 {
 	t_cone		*c;
 
@@ -22,13 +22,13 @@ bool	cone(t_object *obj)
 	c->min = -INFINITY;
 	c->max = INFINITY;
 	c->closed = false;
-	obj = malloc(sizeof(t_object));
-	if (!obj)
+	*obj = malloc(sizeof(t_object));
+	if (!*obj)
 	{
 		free(c);
 		return (false);
 	}
-	*obj = (t_object){
+	**obj = (t_object){
 		.data = c,
 		.color = pixel(.5, .5, .5),
 		.intersect = cone_intersect,

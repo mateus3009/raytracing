@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/02 11:36:12 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 21:26:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_cone
 	bool	closed;
 }				t_cone;
 
-bool			cone(t_object *obj);
+bool			cone(t_object **obj);
 bool			cone_intersect_body(
 					t_object object,
 					t_ray ray,
