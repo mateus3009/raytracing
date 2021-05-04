@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas_destroy.c                                   :+:      :+:    :+:   */
+/*   clear_job.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 11:29:23 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 23:25:45 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/03 23:20:11 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/03 23:23:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "canvas.h"
+#include "world.h"
 
-void	canvas_destroy(t_canvas canvas)
+void	clear_job(void	*j)
 {
-	if (canvas.pixels)
-		free(canvas.pixels);
-	canvas.pixels = NULL;
+	canvas_destroy(((t_job*)j)->canvas);
+	free (j);
 }

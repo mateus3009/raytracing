@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 22:17:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 20:41:43 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 17:58:58 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ bool	process_file(char *filename, t_rt_data *data)
 		return (false);
 	data->resolution.width = 0;
 	data->resolution.height = 0;
+	data->samples.min = 10;
+	data->samples.max = 20;
+	data->depth = 50;
 	data->ambient.color = pixel(1, 1, 1);
 	data->ambient.ratio = 1;
 	data->cameras = NULL;

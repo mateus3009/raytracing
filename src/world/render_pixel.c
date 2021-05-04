@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:12:18 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:24:23 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 17:50:31 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ t_pixel	render_pixel(t_job job, int x, int y)
 			x / (double)(job.canvas.width - 1),
 			y / (double)(job.canvas.height - 1));
 	diff = pixel_around_diff(job.canvas, x, y, color);
-	samples = clamp(job.max_samples_per_pixel * diff,
-			job.min_samples_per_pixel, job.max_samples_per_pixel);
+	samples = clamp(job.samples.max * diff,
+			job.samples.min, job.samples.max);
 	index = samples;
 	while (--index)
 		color = sum(color, get_color(job,

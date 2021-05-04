@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:47:43 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 20:17:56 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/03 22:57:29 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,20 @@ typedef struct s_ambient_light
 	t_pixel	color;
 }				t_ambient_light;
 
+typedef struct s_samples_pixel
+{
+	int	min;
+	int	max;
+}				t_samples_pixel;
+
 typedef struct s_rt_data
 {
 	t_resolution	resolution;
 	t_ambient_light	ambient;
+	t_samples_pixel	samples;
+	int				depth;
 	t_list			*cameras;
+	int				cameras_count;
 	t_list			*objects;
 }				t_rt_data;
 

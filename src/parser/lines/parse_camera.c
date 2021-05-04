@@ -6,13 +6,13 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:30:12 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 22:05:03 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 18:13:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser_lines.h"
 
-static t_camera_param	sample_args(
+static t_camera_param	sample_args(t_rt_data *data,
 	t_point origin,
 	t_vector direction,
 	double vfov)
@@ -25,7 +25,7 @@ static t_camera_param	sample_args(
 	p.up = vector(0, 1, 0);
 	p.aperture = 0;
 	p.focus_distance = length(minus(p.look_at, p.look_from));
-	p.aspect_ratio = 16. / 9.; //usar resolution;
+	p.aspect_ratio = data->resolution.width / data->resolution.height;
 	return (p);
 }
 
@@ -34,7 +34,7 @@ bool	parse_camera(t_rt_data *data, void	**argv)
 	t_camera		*cam;
 	t_list			*temp;
 
-	cam = camera(sample_args(*(t_point*)argv[0],
+	cam = camera(sample_args(data, *(t_point*)argv[0],
 		*(t_vector*)argv[1], *(double*)argv[2]));
 	if (!cam)
 		return (false);
