@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:12:18 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 17:50:31 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 17:06:31 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_pixel	gamma_correction(t_pixel p, int samples)
 			sqrt(p.b * k)));
 }
 
-t_pixel	render_pixel(t_job job, int x, int y)
+t_pixel	render_pixel(t_job *job, int x, int y)
 {
 	t_pixel	color;
 	double	diff;
@@ -49,17 +49,17 @@ t_pixel	render_pixel(t_job job, int x, int y)
 	int		index;
 
 	color = get_color(job,
-			x / (double)(job.canvas.width - 1),
-			y / (double)(job.canvas.height - 1));
-	diff = pixel_around_diff(job.canvas, x, y, color);
-	samples = clamp(job.samples.max * diff,
-			job.samples.min, job.samples.max);
+			x / (double)(job->canvas.width - 1),
+			y / (double)(job->canvas.height - 1));
+	diff = pixel_around_diff(job->canvas, x, y, color);
+	samples = clamp(job->samples.max * diff,
+			job->samples.min, job->samples.max);
 	index = samples;
 	while (--index)
 		color = sum(color, get_color(job,
 					(x + ft_rand_range(-.7, .7))
-					/ (double)(job.canvas.width - 1),
+					/ (double)(job->canvas.width - 1),
 					(y + ft_rand_range(-.7, .7))
-					/ (double)(job.canvas.height - 1)));
+					/ (double)(job->canvas.height - 1)));
 	return (gamma_correction(color, samples));
 }

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 07:09:44 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 17:14:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		|| !rt_data_to_job(rt, &jobs)
 		|| !ft_lstsize(jobs))
 		return (EXIT_FAILURE);
-	render_job(*(t_job*)jobs->content);
+	render_job_with_threads(jobs->content);
 	canvas_to_bmp((*(t_job*)jobs->content).canvas, "output_new.bmp");
 	ft_lstclear(&jobs, clear_job);
 	printf("Finish\n");

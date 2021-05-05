@@ -24,7 +24,7 @@
 
 # sp	<point>		<double>		<color>
 # sp	<origin>	<diameter>		<color>
-# sp	0,0,0		6				180,180,180
+ sp	0,0,0		6				180,180,180
 
 # sq	<point>		<vector>		<double>	<color>
 # sq	<origin>	<direction>		<size>		<color>

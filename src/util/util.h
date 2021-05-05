@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/02 12:27:25 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 07:49:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <errno.h>
+# include <pthread.h>
 
 # define PI 3.14159265358979323846
 

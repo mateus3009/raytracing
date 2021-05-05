@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 22:54:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 17:55:48 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 17:16:44 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static bool	rt_data_to_single_job(t_rt_data rt, t_job **job)
 		.samples = rt.samples,
 		.depth = rt.depth,
 		.camera = *(t_camera*)rt.cameras->content,
-		.objects = rt.objects};
+		.objects = rt.objects,
+		.threads = rt.threads};
 	return (true);
 }
 
