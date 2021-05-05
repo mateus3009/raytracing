@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 22:25:22 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 23:57:07 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,19 @@
 
 bool	triangle(t_object **obj)
 {
-	t_triangle	*t;
+	t_triangle	*data;
 
-	t = malloc(sizeof(t_triangle));
-	if (!t)
-		return (false);
-	*obj = malloc(sizeof(t_object));
+	*obj = object(sizeof(t_triangle));
 	if (!*obj)
-	{
-		free(t);
 		return (false);
-	}
-	t->p1 = point(0, 1, 0);
-	t->p2 = point(-1, 0, 0);
-	t->p3 = point(1, 0, 0);
-	t->e1 = minus(t->p2, t->p1);
-	t->e2 = minus(t->p3, t->p1);
-	t->normal = normalize(cross(t->e1, t->e2));
-	**obj = (t_object){
-		.data = t,
-		.color = pixel(.5, .5, .5),
-		.intersect = triangle_intersect,
-		.normal_at = triangle_normal_at,
-		.matrix = matrix_identity(4),
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()};
+	(*obj)->intersect = triangle_intersect;
+	(*obj)->normal_at = triangle_normal_at;
+	data = (t_triangle*)((*obj)->data);
+	data->p1 = point(0, 1, 0);
+	data->p2 = point(-1, 0, 0);
+	data->p3 = point(1, 0, 0);
+	data->e1 = minus(data->p2, data->p1);
+	data->e2 = minus(data->p3, data->p1);
+	data->normal = normalize(cross(data->e1, data->e2));
 	return (true);
 }

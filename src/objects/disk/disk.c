@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 19:31:21 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 19:31:22 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 23:52:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,10 @@
 
 bool	disk(t_object **obj)
 {
-	*obj = malloc(sizeof(t_object));
+	*obj = object(0);
 	if (!*obj)
 		return (false);
-	**obj = (t_object){
-		.data = NULL,
-		.color = pixel(.5, .5, .5),
-		.intersect = disk_intersect,
-		.normal_at = disk_normal_at,
-		.matrix = matrix_identity(4),
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()
-	};
+	(*obj)->intersect = disk_intersect;
+	(*obj)->normal_at = disk_normal_at;
 	return (true);
 }

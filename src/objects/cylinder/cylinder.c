@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 20:42:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 23:58:25 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,16 @@
 
 bool	cylinder(t_object **obj)
 {
-	t_cylinder	*c;
+	t_cylinder	*data;
 
-	c = malloc(sizeof(t_cylinder));
-	if (!c)
-		return (false);
-	c->min = -INFINITY;
-	c->max = INFINITY;
-	c->closed = false;
-	*obj = malloc(sizeof(t_object));
+	*obj = object(sizeof(t_cylinder));
 	if (!*obj)
-	{
-		free(c);
 		return (false);
-	}
-	**obj = (t_object){
-		.data = c,
-		.color = pixel(.5, .5, .5),
-		.intersect = cylinder_intersect,
-		.normal_at = cylinder_normal_at,
-		.matrix = matrix_identity(4),
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()};
+	(*obj)->intersect = cylinder_intersect;
+	(*obj)->normal_at = cylinder_normal_at;
+	data = ((t_cylinder*)(*obj)->data);
+	data->min = -INFINITY;
+	data->max = INFINITY;
+	data->closed = false;
 	return (true);
 }

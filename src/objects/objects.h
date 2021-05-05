@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 22:21:47 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 23:46:25 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "./disk/disk.h"
 # include "./triangle/triangle.h"
 
+t_object		*object(size_t data_size);
 bool			intersect(
 					t_object obj,
 					t_ray ray,
