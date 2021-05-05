@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.c                                         :+:      :+:    :+:   */
+/*   parse_triangle.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 20:42:30 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/04 22:21:32 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cylinder.h"
+#include "parser_lines.h"
 
-bool	cylinder(t_object **obj)
+bool	parse_triangle(t_rt_data *data, void	**args)
 {
-	t_cylinder	*c;
+	t_object	*obj;
+	t_list		*temp;
 
-	c = malloc(sizeof(t_cylinder));
-	if (!c)
+	if (!triangle(&obj))
 		return (false);
-	c->min = -INFINITY;
-	c->max = INFINITY;
-	c->closed = false;
-	*obj = malloc(sizeof(t_object));
-	if (!*obj)
+	temp = ft_lstnew(obj);
+	if (!temp)
 	{
-		free(c);
+		free(obj);
 		return (false);
 	}
-	**obj = (t_object){
-		.data = c,
-		.color = pixel(.5, .5, .5),
-		.intersect = cylinder_intersect,
-		.normal_at = cylinder_normal_at,
-		.matrix = matrix_identity(4),
-		.inverse_matrix = matrix_identity(4),
-		.material = color_normal()};
+	ft_lstadd_front(&data->objects, temp);
 	return (true);
 }

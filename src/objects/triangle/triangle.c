@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.c                                         :+:      :+:    :+:   */
+/*   triangle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 20:42:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/04 22:25:22 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cylinder.h"
+#include "./triangle.h"
 
-bool	cylinder(t_object **obj)
+bool	triangle(t_object **obj)
 {
-	t_cylinder	*c;
+	t_triangle	*t;
 
-	c = malloc(sizeof(t_cylinder));
-	if (!c)
+	t = malloc(sizeof(t_triangle));
+	if (!t)
 		return (false);
-	c->min = -INFINITY;
-	c->max = INFINITY;
-	c->closed = false;
 	*obj = malloc(sizeof(t_object));
 	if (!*obj)
 	{
-		free(c);
+		free(t);
 		return (false);
 	}
+	t->p1 = point(0, 1, 0);
+	t->p2 = point(-1, 0, 0);
+	t->p3 = point(1, 0, 0);
+	t->e1 = minus(t->p2, t->p1);
+	t->e2 = minus(t->p3, t->p1);
+	t->normal = normalize(cross(t->e1, t->e2));
 	**obj = (t_object){
-		.data = c,
+		.data = t,
 		.color = pixel(.5, .5, .5),
-		.intersect = cylinder_intersect,
-		.normal_at = cylinder_normal_at,
+		.intersect = triangle_intersect,
+		.normal_at = triangle_normal_at,
 		.matrix = matrix_identity(4),
 		.inverse_matrix = matrix_identity(4),
 		.material = color_normal()};
