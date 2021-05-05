@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 21:22:42 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 06:15:10 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 bool	parse_plane(t_rt_data *data, void	**args)
 {
 	t_object	*obj;
-	t_point		origin;
-	t_vector	direction;
 	t_list		*temp;
 
-	if (!plane(&obj))
+	if (!plane(&obj, (t_plane_build){
+		.origin = *(t_point*)args[0],
+		.direction = *(t_vector*)args[1],
+		.color = *(t_pixel*)args[2]}))
 		return (false);
-	origin = *(t_point*)args[0];
-	direction = *(t_vector*)args[1];
-	obj->color = *(t_pixel*)args[2];
-	add_transformation(obj, translate(origin.x, origin.y, origin.z));
-	add_transformation(obj, from_to_rotation(vector(0, 1, 0), direction));
 	temp = ft_lstnew(obj);
 	if (!temp)
 	{

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 20:41:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 00:11:14 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,15 @@ typedef struct s_triangle
 	t_vector	normal;
 }				t_triangle;
 
+typedef struct s_triangle_build
+{
+	t_point		p1;
+	t_point		p2;
+	t_point		p3;
+	t_pixel		color;
+}				t_triangle_build;
 
-bool			triangle(t_object **obj);
+bool	triangle(t_object **obj, t_triangle_build params);
 bool			triangle_intersect(
 					t_object object,
 					t_ray ray,

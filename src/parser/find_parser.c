@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 23:08:22 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 07:21:32 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 			parse_vector,
 			parse_double,
 			parse_color}},
+	{.id = "cb",
+		.argc = 4,
+		.line_parser = parse_cube,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_point,
+			parse_vector,
+			parse_double,
+			parse_color}},
 	{.id = "dk",
 		.argc = 4,
 		.line_parser = parse_disk,
@@ -72,6 +80,15 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 	{.id = "cy",
 		.argc = 5,
 		.line_parser = parse_cylinder,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_point,
+			parse_vector,
+			parse_double,
+			parse_double,
+			parse_color}},
+	{.id = "cn",
+		.argc = 5,
+		.line_parser = parse_cone,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_point,
 			parse_vector,

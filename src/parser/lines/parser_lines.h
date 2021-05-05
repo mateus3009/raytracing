@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:28:16 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 23:07:56 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 06:30:14 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ bool	parse_ambient(t_rt_data *data, void **argv);
 bool	parse_square(t_rt_data *data, void	**args);
 bool	parse_disk(t_rt_data *data, void	**args);
 bool	parse_triangle(t_rt_data *data, void	**args);
+bool	parse_cone(t_rt_data *data, void **args);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 21:27:15 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 00:32:43 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,18 @@ typedef struct s_cylinder
 	bool	closed;
 }				t_cylinder;
 
-bool			cylinder(t_object **obj);
+typedef struct s_cylinder_build
+{
+	t_point		origin;
+	t_vector	direction;
+	double		radius;
+	t_pixel		color;
+	double		height_min;
+	double		height_max;
+	bool		is_closed;
+}				t_cylinder_build;
+
+bool			cylinder(t_object **obj, t_cylinder_build params);
 bool			cylinder_intersect_body(
 					t_object object,
 					t_ray ray,

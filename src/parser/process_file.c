@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 22:17:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 17:58:58 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 06:53:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static bool	process_lines(int fd, t_rt_data *data)
 			clean_rt_data_and_exit(data, index);
 			return (false);
 		}
-		ft_strreplace_all('\t', ' ', ft_strreplace_all('\r', ' ', line));
 		if (!process_line(data, line))
 		{
 			clean_rt_data_and_exit(data, index);

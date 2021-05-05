@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 21:27:26 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 00:16:08 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,14 @@ typedef struct s_sphere_params
 	double		x2;
 }				t_sphere_params;
 
-bool			sphere(t_object **obj);
+typedef struct s_sphere_build
+{
+	t_point	origin;
+	double	radius;
+	t_pixel	color;
+}				t_sphere_build;
+
+bool			sphere(t_object **obj, t_sphere_build params);
 bool			sphere_intersect(
 					t_object object,
 					t_ray ray,

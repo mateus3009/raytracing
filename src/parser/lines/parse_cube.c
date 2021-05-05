@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 21:25:41 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 06:27:45 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 bool	parse_cube(t_rt_data *data, void	**args)
 {
 	t_object	*obj;
-	t_point		origin;
-	double		size;
 	t_list		*temp;
 
-	if (!cube(&obj))
+	if (!cube(&obj, (t_cube_build){
+		.origin = *(t_point*)args[0],
+		.direction = *(t_vector*)args[1],
+		.half_size = *(double*)args[2] / 2.,
+		.color = *(t_pixel*)args[3]}))
 		return (false);
-	origin = *(t_point*)args[0];
-	size = *(double*)args[1] / 2;
-	obj->color = *(t_pixel*)args[2];
-	add_transformation(obj, translate(origin.x, origin.y, origin.z));
-	add_transformation(obj, translate(size, size, size));
 	temp = ft_lstnew(obj);
 	if (!temp)
 	{

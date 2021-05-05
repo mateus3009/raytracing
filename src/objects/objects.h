@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 23:46:25 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 00:13:32 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define OBJECTS_H
 
 # include "objects_structs.h"
+# include "./../transform/transform.h"
 # include "./sphere/sphere.h"
 # include "./plane/plane.h"
 # include "./cube/cube.h"
