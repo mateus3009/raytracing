@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   metal.c                                            :+:      :+:    :+:   */
+/*   parse_light.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 10:33:55 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 21:06:53 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/05 22:11:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "metal.h"
+#include "parser_lines.h"
 
-t_material	metal(double fuzz)
+bool	parse_light(t_rt_data *data, void **args)
 {
-	t_metal		*metal;
-	t_material	material;
+	t_light		*l;
+	t_list		*temp;
 
-	metal = malloc(sizeof(t_metal));
-	if (!metal)
-		exit(1);
-	metal->fuzz = fuzz;
-	material.data = metal;
-	material.scatter = metal_scatter;
-	return (material);
+	if (!light(&l,
+		*(double*)args[1], *(t_pixel*)args[2], *(t_point*)args[0]))
+		return (false);
+	temp = ft_lstnew(l);
+	if (!temp)
+	{
+		free(l);
+		return (false);
+	}
+	ft_lstadd_front(&data->light_points, temp);
+	return (true);
 }

@@ -1,14 +1,30 @@
 # R		<int>		<int>
 # R		<width>		<height>
-  R		300		300
+  R		300			255
 
 # A		<double>	<color>
 # A		<lighting>	<color>
-# A		0.2			255,255,255
+ A		0.2			255,255,255
+
+# BGC	<color>
+# BGC	<background>
+ BGC	255,255,255
+
+# TH	<int>
+# TH	<threads>
+ TH	6
+
+# DP	<int>
+# DP	<depth>
+ DP	100
+
+# SS	<int>	<int>
+# SS	<min>	<max>
+ SS	50		100
 
 # c		<point>		<point>		<vector>		<double>	<double>
 # c		<look_from>	<look_at>	<up vector>		<HFOV>		<aperture>
-  c		0,5,-20		0,0,0		1,1,0			80			0.5
+  c		0,2,-5		0,0,0		0,1,0			60			0.5
 
 # c		<point>		<vector>		<double>
 # c		<origin>	<direction>		<HFOV>
@@ -28,7 +44,9 @@
 
 # sp	<point>		<double>		<color>
 # sp	<origin>	<diameter>		<color>
-  sp	-3,0,0		6				180,180,180
+  sp	-2,0,0		2				180,0,0
+  sp	0,0,0		2				0,180,0
+  sp	2,0,0		2				0,0,180
 
 # sq	<point>		<vector>		<double>	<color>
 # sq	<origin>	<direction>		<size>		<color>
@@ -36,11 +54,11 @@
 
 # cb	<point>		<vector>		<double>	<color>
 # cb	<origin>	<direction>		<size>		<color>
-  cb	3,0,0		0,1,0			6			180,180,180
+# cb	3,0,0		0,1,0			6			180,180,180
 
 # cy	<point>		<vector>		<double>	<double>	<color>
 # cy	<origin>	<direction>		<diameter>	<height>	<color>
-  cy	0,0,0		0,1,0			6			2			180,180,180
+# cy	0,0,0		0,1,0			6			2			180,180,180
 
 # cn	<point>		<vector>		<double>	<double>	<color>
 # cn	<origin>	<direction>		<start>		<end>		<color>

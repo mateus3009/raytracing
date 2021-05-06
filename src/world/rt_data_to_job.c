@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 22:54:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 20:52:21 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:51:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static bool	rt_data_to_single_job(t_rt_data rt, t_job **job)
 		.depth = rt.depth,
 		.camera = *(t_camera*)rt.cameras->content,
 		.objects = rt.objects,
+		.light_points = rt.light_points,
 		.threads = rt.threads,
 		.bgc = rt.bgc};
 	return (true);

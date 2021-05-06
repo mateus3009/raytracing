@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 00:39:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:24:09 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	square(t_object **obj, t_square_build params)
 		return (false);
 	(*obj)->intersect = square_intersect;
 	(*obj)->normal_at = square_normal_at;
-	(*obj)->color = params.color;
+	(*obj)->material.color = params.color;
 	add_transformation(*obj,
 		scaling(params.half_size, params.half_size, params.half_size));
 	add_transformation(*obj,

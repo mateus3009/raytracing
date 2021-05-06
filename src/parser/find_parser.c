@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 20:55:16 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 22:10:27 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 			parse_double}},
 	{.id = "l",
 		.argc = 3,
-		.line_parser = NULL,
+		.line_parser = parse_light,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_point,
 			parse_double,
@@ -112,22 +112,22 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 			parse_point,
 			parse_point,
 			parse_color}},
-	{.id = "bgc",
+	{.id = "BGC",
 		.argc = 1,
 		.line_parser = parse_bgc,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_color}},
-	{.id = "dp",
+	{.id = "DP",
 		.argc = 1,
 		.line_parser = parse_depth,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_int}},
-	{.id = "th",
+	{.id = "TH",
 		.argc = 1,
 		.line_parser = parse_thread,
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_int}},
-	{.id = "ss",
+	{.id = "SS",
 		.argc = 2,
 		.line_parser = parse_samples,
 		.arg_parsers = (t_rt_arg_parser[]){

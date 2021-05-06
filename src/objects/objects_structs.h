@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 19:08:07 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:23:12 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_intersection	t_intersection;
 typedef struct s_object
 {
 	void		*data;
-	t_pixel		color;
 	t_matrix	matrix;
 	t_matrix	inverse_matrix;
 	t_material	material;

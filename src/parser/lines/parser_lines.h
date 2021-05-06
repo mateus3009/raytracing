@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:28:16 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 20:54:24 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 22:09:33 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ bool	parse_thread(t_rt_data *data, void **argv);
 bool	parse_samples(t_rt_data *data, void **argv);
 bool	parse_depth(t_rt_data *data, void **argv);
 bool	parse_bgc(t_rt_data *data, void **argv);
+bool	parse_light(t_rt_data *data, void **args);
 
 #endif

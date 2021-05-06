@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 12:17:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:08:42 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ bool	metal_scatter(
 	reflected = reflect(normalize(in.direction), rec.normal);
 	*scattered = ray(rec.point,
 		sum(reflected, scalar(random_in_unit_sphere(), metal.fuzz)));
-	*attenuation = metal.albedo;
+	*attenuation = material.color;
 	return (dot(reflected, rec.normal) > 0);
 }

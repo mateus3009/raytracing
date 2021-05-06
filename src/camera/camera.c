@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 19:27:44 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/30 22:12:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 23:10:01 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ t_camera	*camera(t_camera_param c)
 	camera = malloc(sizeof(t_camera));
 	if (!camera)
 		return (NULL);
-	viewport_height = 2.
-		* tan(degrees_to_radians(c.vertical_field_of_view) / 2.);
-	viewport_width = viewport_height * c.aspect_ratio;
+	viewport_width = tan(degrees_to_radians(c.vertical_field_of_view) / 2.) * 2;
+	viewport_height = c.aspect_ratio * viewport_width;
 	camera->origin = c.look_from;
 	camera->z = normalize(minus(camera->origin, c.look_at));
 	camera->x = normalize(cross(c.up, camera->z));

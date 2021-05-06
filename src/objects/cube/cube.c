@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 00:41:52 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:23:35 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	cube(t_object **obj, t_cube_build params)
 		return (false);
 	(*obj)->intersect = cube_intersect;
 	(*obj)->normal_at = cube_normal_at;
-	(*obj)->color = params.color;
+	(*obj)->material.color = params.color;
 	add_transformation(*obj,
 		scaling(params.half_size, params.half_size, params.half_size));
 	add_transformation(*obj,

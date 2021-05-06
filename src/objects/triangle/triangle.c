@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 00:22:42 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:24:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	triangle(t_object **obj, t_triangle_build params)
 		return (false);
 	(*obj)->intersect = triangle_intersect;
 	(*obj)->normal_at = triangle_normal_at;
-	(*obj)->color = params.color;
+	(*obj)->material.color = params.color;
 	data = (t_triangle*)((*obj)->data);
 	data->p1 = params.p1;
 	data->p2 = params.p2;

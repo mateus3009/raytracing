@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 19:31:21 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 00:38:52 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:23:48 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	disk(t_object **obj, t_disk_build params)
 		return (false);
 	(*obj)->intersect = disk_intersect;
 	(*obj)->normal_at = disk_normal_at;
-	(*obj)->color = params.color;
+	(*obj)->material.color = params.color;
 	add_transformation(*obj,
 		scaling(params.radius, params.radius, params.radius));
 	add_transformation(*obj,

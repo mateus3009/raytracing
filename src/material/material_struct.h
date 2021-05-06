@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 11:24:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:05:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:03:46 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_intersection	t_intersection;
 typedef struct s_material
 {
 	void	*data;
+	t_pixel	color;
 	bool	(*scatter)(
 			struct s_material material,
 			t_ray r_in,

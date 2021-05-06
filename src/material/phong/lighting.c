@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 19:25:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 00:07:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_pixel	lighting_ambient(
 	t_pixel	partial;
 
 	material = *(t_phong*)hit.object.material.data;
-	partial = product(material.color, light.intensity);
+	partial = product(material.color, light.color);
 	return (scalar(partial, material.ambient));
 }
 
@@ -34,7 +34,7 @@ static t_pixel	lighting_diffuse(
 	double		light_dot_normal;
 
 	material = *(t_phong*)hit.object.material.data;
-	partial = product(material.color, light.intensity);
+	partial = product(material.color, light.color);
 	light_direction = normalize(minus(light.origin, hit.point));
 	light_dot_normal = dot(light_direction, hit.normal);
 	if (light_dot_normal < 0)
@@ -57,7 +57,7 @@ static t_pixel	lighting_specular(
 			normalize(scalar(hit.ray.direction, -1)));
 	if (reflect_dot_eye <= 0)
 		return (pixel(0, 0, 0));
-	return (scalar(light.intensity,
+	return (scalar(light.color,
 			material.specular * pow(reflect_dot_eye, material.shininess)));
 }
 
@@ -77,7 +77,7 @@ t_pixel	lighting(
 		specular = lighting_specular(light, hit);
 	result = sum(sum(ambient, diffuse), specular);
 	result.a = 0;
-	return (result);
+	return (specular);
 }
 
 bool	phong_scatter(

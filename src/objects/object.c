@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 10:06:07 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 20:33:27 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 21:33:40 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_object	*object(size_t data_size)
 	obj->data = data;
 	obj->intersect = NULL;
 	obj->normal_at = NULL;
-	obj->color = pixel(.5, .5, .5);
-	obj->material = color_normal();
+	obj->material.color = pixel(.5, .5, .5);
+	obj->material = lambertian();
 	obj->matrix = matrix_identity(4);
 	obj->inverse_matrix = obj->matrix;
 	return (obj);
