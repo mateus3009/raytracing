@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 17:14:19 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:50:11 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_job
 	t_camera			camera;
 	t_list				*objects;
 	int					threads;
+	t_pixel				bgc;
 }				t_job;
 
 typedef	struct s_handle_job_data

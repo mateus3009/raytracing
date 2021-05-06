@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_camera.c                                     :+:      :+:    :+:   */
+/*   parse_camera_complete.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:30:12 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 18:55:33 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 18:58:09 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser_lines.h"
 
-static t_camera_param	sample_args(t_rt_data *data,
-	t_point origin,
-	t_vector direction,
-	double vfov)
-{
-	t_camera_param	p;
-
-	p.look_from = origin;
-	p.look_at = sum(p.look_from, direction);
-	p.vertical_field_of_view = vfov;
-	p.up = vector(0, 1, 0);
-	p.aperture = 0;
-	p.focus_distance = length(minus(p.look_at, p.look_from));
-	p.aspect_ratio = data->resolution.width / data->resolution.height;
-	return (p);
-}
-
-bool	parse_camera(t_rt_data *data, void	**argv)
+bool	parse_camera_complete(t_rt_data *data, void	**argv)
 {
 	t_camera		*cam;
 	t_list			*temp;
 
-	if (*(double*)argv[2] < 0 || 180 < *(double*)argv[2])
+	t_camera_param	p;
+
+	if (*(double*)argv[3] < 0 || 180 < *(double*)argv[3])
 		return (false);
-	cam = camera(sample_args(data, *(t_point*)argv[0],
-		*(t_vector*)argv[1], *(double*)argv[2]));
+	p.look_from = *(t_point*)argv[0];
+	p.look_at = *(t_point*)argv[1];
+	p.up = *(t_vector*)argv[2];
+	p.vertical_field_of_view = *(double*)argv[3];
+	p.aperture = *(double*)argv[4];
+	p.focus_distance = length(minus(p.look_at, p.look_from));
+	p.aspect_ratio = data->resolution.width / data->resolution.height;
+
+	cam = camera(p);
 	if (!cam)
 		return (false);
 	temp = ft_lstnew(cam);

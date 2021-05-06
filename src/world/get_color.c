@@ -6,13 +6,13 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:13:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 17:06:51 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:50:52 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
 
-static t_pixel	ray_color(t_ray r, t_list *objects, int depth)
+static t_pixel	ray_color(t_job *job, t_ray r, t_list *objects, int depth)
 {
 	t_intersection	record;
 	t_ray			scattered;
@@ -23,17 +23,17 @@ static t_pixel	ray_color(t_ray r, t_list *objects, int depth)
 	if (hit(r, objects, &record))
 	{
 		if (record.object.material.scatter(record.object.material, r, record, &attenuation, &scattered))
-			return (product(attenuation, ray_color(scattered, objects, depth - 1)));
+			return (product(attenuation, ray_color(job, scattered, objects, depth - 1)));
 		return (attenuation);
 	}
-	return (pixel(1, 1, 1));
+	return (job->bgc);
 }
 
 t_pixel	get_color(t_job *job, double w, double h)
 {
 	t_pixel	color;
 
-	color = ray_color(
+	color = ray_color(job,
 		get_ray(job->camera, w, h),
 		job->objects,
 		job->depth);

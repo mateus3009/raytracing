@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 07:21:32 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:55:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_point,
 			parse_vector,
+			parse_double}},
+	{.id = "c",
+		.argc = 5,
+		.line_parser = parse_camera_complete,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_point,
+			parse_point,
+			parse_vector,
+			parse_double,
 			parse_double}},
 	{.id = "l",
 		.argc = 3,
@@ -103,6 +112,27 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 			parse_point,
 			parse_point,
 			parse_color}},
+	{.id = "bgc",
+		.argc = 1,
+		.line_parser = parse_bgc,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_color}},
+	{.id = "dp",
+		.argc = 1,
+		.line_parser = parse_depth,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_int}},
+	{.id = "th",
+		.argc = 1,
+		.line_parser = parse_thread,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_int}},
+	{.id = "ss",
+		.argc = 2,
+		.line_parser = parse_samples,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_int,
+			parse_int}},
 	NULL};
 
 bool	find_parser(char *id, int argc, t_rt_parser *parser)

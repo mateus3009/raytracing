@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:47:43 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 17:16:01 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:48:27 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_rt_data
 	int				cameras_count;
 	t_list			*objects;
 	int				threads;
+	t_pixel			bgc;
 }				t_rt_data;
 
 typedef bool	(*t_rt_arg_parser)(char *in, void **result);

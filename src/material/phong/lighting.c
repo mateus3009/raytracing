@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 11:08:40 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/05 19:25:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,27 @@ t_pixel	lighting(
 	result = sum(sum(ambient, diffuse), specular);
 	result.a = 0;
 	return (result);
+}
+
+bool	phong_scatter(
+	t_material material,
+	t_ray r_in,
+	t_intersection rec,
+	t_pixel *attenuation,
+	t_ray *scattered)
+{
+	t_pixel	result;
+	t_pixel	ambient;
+	t_pixel	diffuse;
+	t_pixel	specular;
+	t_light	light;
+
+	ambient = lighting_ambient(light, rec);
+	diffuse = lighting_diffuse(light, rec);
+	specular = pixel(0, 0, 0);
+	if (!tuple_equal(diffuse, pixel(0, 0, 0)))
+		specular = lighting_specular(light, rec);
+	*attenuation = sum(sum(ambient, diffuse), specular);
+	attenuation->a = 0;
+	return (false);
 }
