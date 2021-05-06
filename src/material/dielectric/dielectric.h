@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:14:32 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 12:47:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 08:38:24 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_dielectric
 	double	refraction_ratio;
 }				t_dielectric;
 
-t_material		dielectric(double refraction_ratio);
+t_material		dielectric(t_pixel color, double refraction_ratio);
 bool			dielectric_scatter(
 					t_material material,
 					t_ray r_in,

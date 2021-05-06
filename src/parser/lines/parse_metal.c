@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_depth.c                                      :+:      :+:    :+:   */
+/*   parse_metal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 00:14:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 08:44:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser_lines.h"
 
-bool	parse_depth(t_rt_data *data, void **argv)
+bool	parse_metal(t_rt_data *data, void **argv)
 {
-	int	depth;
+	t_object	*obj;
 
-	depth = *(int*)argv[0];
-	if (depth < 1)
+	obj = (t_object*)data->objects->content;
+	if (!obj)
 		return (false);
-	data->depth = depth;
+	if (obj->material.data)
+		free(obj->material.data);
+	obj->material = metal(*(t_pixel*)argv[0], *(double*)argv[1]);
 	return (true);
 }

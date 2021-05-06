@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 22:10:27 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 08:46:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,23 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 		.arg_parsers = (t_rt_arg_parser[]){
 			parse_int,
 			parse_int}},
+	{.id = "lambertian",
+		.argc = 1,
+		.line_parser = parse_lambertian,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_color}},
+	{.id = "metal",
+		.argc = 2,
+		.line_parser = parse_metal,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_color,
+			parse_double}},
+	{.id = "dielectric",
+		.argc = 2,
+		.line_parser = parse_dielectric,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_color,
+			parse_double}},
 	NULL};
 
 bool	find_parser(char *id, int argc, t_rt_parser *parser)
@@ -140,7 +157,7 @@ bool	find_parser(char *id, int argc, t_rt_parser *parser)
 	t_rt_parser	*p;
 
 	p = g_rt_parsers;
-	while (p->arg_parsers)
+	while (p->id)
 	{
 		if (!ft_strcmp(p->id, id) && p->argc == argc - 1)
 		{

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:12:18 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 17:06:31 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 09:00:54 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ t_pixel	render_pixel(t_job *job, int x, int y)
 	index = samples;
 	while (--index)
 		color = sum(color, get_color(job,
-					(x + ft_rand_range(-.7, .7))
+					(x + ft_rand())
 					/ (double)(job->canvas.width - 1),
-					(y + ft_rand_range(-.7, .7))
+					(y + ft_rand())
 					/ (double)(job->canvas.height - 1)));
 	return (gamma_correction(color, samples));
 }

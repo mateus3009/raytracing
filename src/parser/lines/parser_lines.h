@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:28:16 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 22:09:33 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 08:45:01 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ bool	parse_samples(t_rt_data *data, void **argv);
 bool	parse_depth(t_rt_data *data, void **argv);
 bool	parse_bgc(t_rt_data *data, void **argv);
 bool	parse_light(t_rt_data *data, void **args);
+bool	parse_metal(t_rt_data *data, void **argv);
+bool	parse_lambertian(t_rt_data *data, void **argv);
+bool	parse_dielectric(t_rt_data *data, void **argv);
 
 #endif
