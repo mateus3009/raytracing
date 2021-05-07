@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:45:02 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 17:30:58 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 21:54:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*render_job(void *data)
 		jp.start = (jd.job->canvas.width / jd.job->threads) * jd.thread_id;
 		jp.end = (jd.job->canvas.width / jd.job->threads) * (jd.thread_id + 1);
 		jp.x = jp.start - 1;
+		if (jd.thread_id == jd.job->threads - 1)
+			jp.end = jd.job->canvas.width;
 		while (++jp.x < jp.end)
 			write_pixel(jd.job->canvas, jp.x, jp.y, render_pixel(jd.job, jp.x, jp.y));
 	}

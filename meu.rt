@@ -1,6 +1,6 @@
 # R		<int>		<int>
 # R		<width>		<height>
-  R		400			355
+  R		400		355
 
 # A		<double>	<color>
 # A		<lighting>	<color>
@@ -8,23 +8,23 @@
 
 # BGC	<color>
 # BGC	<background>
- BGC	255,255,255
+# BGC	255,255,255
 
 # TH	<int>
 # TH	<threads>
- TH	6
+  TH	1
 
 # DP	<int>
 # DP	<depth>
- DP	500
+  DP	100
 
 # SS	<int>	<int>
 # SS	<min>	<max>
- SS	200		500
+  SS	10		200
 
 # c		<point>		<point>		<vector>		<double>	<double>
 # c		<look_from>	<look_at>	<up vector>		<HFOV>		<aperture>
-  c		-5,2,-5		0,0,0		0,1,0			40			0.1
+  c		-5,2,-5		0,0,0		0,1,0			60			0.1
 
 # c		<point>		<vector>		<double>
 # c		<origin>	<direction>		<HFOV>
@@ -40,30 +40,23 @@
 
 # dk	<point>		<vector>		<double>	<color>
 # dk	<origin>	<direction>		<size>		<color>
-# dk	0,0,0		0,0,1			4			180,180,180
+# dk	0,0,0		0,1,0			4			180,180,180
 
 # sp	<point>		<double>		<color>
 # sp	<origin>	<diameter>		<color>
-  sp	-2.5,0,0		2				200,0,0
-  sp	0,0,0		2				0,180,0
-  metal 180,180,180 0
-  sp	2.5,0,0		2				0,0,180
-  dielectric 0,180,0 1.8
+  sp	0,0,0		2				255,255,255
 
 # sq	<point>		<vector>		<double>	<color>
 # sq	<origin>	<direction>		<size>		<color>
-# sq	3.5,1,2		0,1,1			3			180,180,180
+# sq	0,0,0		0,1,0			3			180,180,180
 
 # cb	<point>		<vector>		<double>	<color>
 # cb	<origin>	<direction>		<size>		<color>
-  cb	3.5,1,2		1,0,0.8			3			180,180,180
-  metal 180,180,180 0
-  cb	-5,1,-7		1,0,1			3			180,180,180
-  metal 180,180,180 0.001
+# cb	3.5,1,2		1,0,0.8			3			180,180,180
 
 # cy	<point>		<vector>		<double>	<double>	<color>
 # cy	<origin>	<direction>		<diameter>	<height>	<color>
-  cy	-4.9,0,-2.9		0,0.9,0.1			2			INF			180,180,180
+# cy	0,0,0		0,1,0			3			INF			180,180,180
 
 # cn	<point>		<vector>		<double>	<double>	<color>
 # cn	<origin>	<direction>		<start>		<end>		<color>
@@ -71,4 +64,4 @@
 
 # tr	<point>		<point>			<point>		<color>
 # tr	<vertice a>	<vertice b>		<vertice c>	<color>
-  tr	0,1,-1		0,4,-1			0,1,-4		180,180,100
+#  tr	0,1,0		-1,0,0			1,0,0		180,180,100

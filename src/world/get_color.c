@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:13:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 00:08:07 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 20:59:19 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ static t_pixel	ray_color(t_job *job, t_ray r, t_list *objects, int depth)
 		return (pixel(0, 0, 0));
 	if (hit(r, objects, &record))
 	{
-		if (record.object.material.scatter(record.object.material, r, record, &attenuation, &scattered))
+		if (record.object.material.scatter((t_scatter_params){.job = job,
+			.material = record.object.material,
+			.ray = r,
+			.record = &record,
+			.attenuation = &attenuation,
+			.scattered = &scattered}))
 			return (product(attenuation, ray_color(job, scattered, objects, depth - 1)));
 		return (attenuation);
 	}

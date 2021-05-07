@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 14:02:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 21:00:04 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@ static double reflectance(double cos, double ratio)
 	return (r + ((1. - r) * pow(1. - cos, 5.)));
 }
 
-bool	dielectric_scatter(
-	t_material material,
-	t_ray in,
-	t_intersection rec,
-	t_pixel *attenuation,
-	t_ray *scattered)
+bool	dielectric_scatter(t_scatter_params p)
 {
 	t_dielectric	m;
 	double		ratio;
@@ -35,17 +30,17 @@ bool	dielectric_scatter(
 	double		cos_theta;
 	double		sin_theta;
 
-	m = *(t_dielectric *)material.data;
+	m = *(t_dielectric *)p.material.data;
 	ratio = m.refraction_ratio;
-	if (rec.front_face)
+	if (p.record->front_face)
 		ratio = 1. / ratio;
-	ndirection = normalize(in.direction);
-	cos_theta = fmin(dot(scalar(ndirection, -1), rec.normal), 1.);
+	ndirection = normalize(p.ray.direction);
+	cos_theta = fmin(dot(scalar(ndirection, -1), p.record->normal), 1.);
 	sin_theta = sqrt(1. - cos_theta * cos_theta);
 	if (ratio * sin_theta > 1. || reflectance(cos_theta, ratio) > ft_rand())
-		*scattered = ray(rec.point, reflect(normalize(in.direction), rec.normal));
+		*p.scattered = ray(p.record->point, reflect(normalize(p.ray.direction), p.record->normal));
 	else
-		*scattered = ray(rec.point, refract(normalize(in.direction), rec.normal, ratio));
-	*attenuation = pixel(1, 1, 1);
+		*p.scattered = ray(p.record->point, refract(normalize(p.ray.direction), p.record->normal, ratio));
+	*p.attenuation = pixel(1, 1, 1);
 	return (true);
 }

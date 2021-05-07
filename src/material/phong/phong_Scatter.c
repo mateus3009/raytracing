@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lighting.c                                         :+:      :+:    :+:   */
+/*   phong_Scatter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 00:07:13 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:59:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phong.h"
+#include "./../../objects/objects.h"
 
 static t_pixel	lighting_ambient(
 	t_light light,
@@ -20,7 +21,7 @@ static t_pixel	lighting_ambient(
 	t_pixel	partial;
 
 	material = *(t_phong*)hit.object.material.data;
-	partial = product(material.color, light.color);
+	partial = product(hit.object.material.color, light.color);
 	return (scalar(partial, material.ambient));
 }
 
@@ -34,7 +35,7 @@ static t_pixel	lighting_diffuse(
 	double		light_dot_normal;
 
 	material = *(t_phong*)hit.object.material.data;
-	partial = product(material.color, light.color);
+	partial = product(hit.object.material.color, light.color);
 	light_direction = normalize(minus(light.origin, hit.point));
 	light_dot_normal = dot(light_direction, hit.normal);
 	if (light_dot_normal < 0)
@@ -61,44 +62,41 @@ static t_pixel	lighting_specular(
 			material.specular * pow(reflect_dot_eye, material.shininess)));
 }
 
-t_pixel	lighting(
-	t_light light,
-	t_intersection hit)
+t_pixel	lighting(t_light l, t_intersection rec)
 {
 	t_pixel	result;
 	t_pixel	ambient;
 	t_pixel	diffuse;
 	t_pixel	specular;
 
-	ambient = lighting_ambient(light, hit);
-	diffuse = lighting_diffuse(light, hit);
+	ambient = lighting_ambient(l, rec);
+	diffuse = lighting_diffuse(l, rec);
 	specular = pixel(0, 0, 0);
 	if (!tuple_equal(diffuse, pixel(0, 0, 0)))
-		specular = lighting_specular(light, hit);
+		specular = lighting_specular(l, rec);
 	result = sum(sum(ambient, diffuse), specular);
 	result.a = 0;
-	return (specular);
+	return (result);
 }
 
-bool	phong_scatter(
-	t_material material,
-	t_ray r_in,
-	t_intersection rec,
-	t_pixel *attenuation,
-	t_ray *scattered)
+bool	phong_scatter(t_scatter_params p)
 {
-	t_pixel	result;
-	t_pixel	ambient;
-	t_pixel	diffuse;
-	t_pixel	specular;
-	t_light	light;
+	int		index;
+	t_pixel	color;
+	t_list	*lights;
 
-	ambient = lighting_ambient(light, rec);
-	diffuse = lighting_diffuse(light, rec);
-	specular = pixel(0, 0, 0);
-	if (!tuple_equal(diffuse, pixel(0, 0, 0)))
-		specular = lighting_specular(light, rec);
-	*attenuation = sum(sum(ambient, diffuse), specular);
-	attenuation->a = 0;
+	index = 0;
+	color = pixel(0, 0, 0);
+	lights = (t_list*)p.job->light_points;
+	while (lights)
+	{
+		color = sum(color,
+			lighting(*(t_light*)lights->content, *p.record));
+		lights = lights->next;
+		index++;
+	}
+	if (index)
+		color = divide(color, index);
+	*p.attenuation = color;
 	return (false);
 }
