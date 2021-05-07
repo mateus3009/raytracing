@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_color.c                                        :+:      :+:    :+:   */
+/*   ray_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:13:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/07 09:18:11 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/07 09:00:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
 
-t_pixel	get_color(t_job *job, double w, double h)
+t_pixel	ray_color(t_job *job, t_ray r, int depth)
 {
-	t_pixel	color;
+	t_intersection	record;
+	t_ray			scattered;
+	t_pixel			attenuation;
 
-	color = ray_color(job,
-		get_ray(job->camera, w, h),
-		job->depth);
-	return (clamp_tuple(color, 0, .99));
+	if (depth <= 0)
+		return (pixel(0, 0, 0));
+	if (hit(r, job->objects, &record))
+	{
+		if (record.object.material.scatter((t_scatter_params){.job = job,
+			.material = record.object.material,
+			.ray = r,
+			.record = &record,
+			.attenuation = &attenuation,
+			.scattered = &scattered}))
+			return (product(attenuation, ray_color(job, scattered, depth - 1)));
+		return (attenuation);
+	}
+	return (job->bgc);
 }

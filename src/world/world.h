@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 21:48:09 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/07 09:03:09 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef	struct s_handle_job_params
 
 void	clear_job(void	*j);
 bool	hit(t_ray ray, t_list *objs, t_intersection *rec);
+t_pixel	ray_color(t_job *job, t_ray r, int depth);
 t_pixel	get_color(t_job *job, double w, double h);
 t_pixel	render_pixel(t_job *job, int x, int y);
 void	*render_job(void *data);

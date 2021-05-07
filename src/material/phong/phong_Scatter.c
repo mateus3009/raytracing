@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 22:59:50 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/07 09:17:28 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,34 @@ static t_pixel	lighting_specular(
 			material.specular * pow(reflect_dot_eye, material.shininess)));
 }
 
-t_pixel	lighting(t_light l, t_intersection rec)
+bool	is_shadowed(t_job *job, t_light l, t_intersection rec)
+{
+	t_vector	direction;
+	double		distance;
+
+	direction = minus(l.origin, rec.point);
+	distance = length(direction);
+	if (!hit(ray(rec.point, normalize(direction)), job->objects, &rec))
+		return (false);
+	return (rec.t < distance);
+}
+
+t_pixel	lighting(t_job *job, t_light l, t_intersection rec)
 {
 	t_pixel	result;
 	t_pixel	ambient;
 	t_pixel	diffuse;
 	t_pixel	specular;
 
+	result = pixel(0, 0, 0);
+	specular = pixel(0, 0, 0);
 	ambient = lighting_ambient(l, rec);
 	diffuse = lighting_diffuse(l, rec);
-	specular = pixel(0, 0, 0);
 	if (!tuple_equal(diffuse, pixel(0, 0, 0)))
 		specular = lighting_specular(l, rec);
-	result = sum(sum(ambient, diffuse), specular);
+	if (!is_shadowed(job, l, rec))
+		result = sum(diffuse, specular);
+	result = sum(ambient, result);
 	result.a = 0;
 	return (result);
 }
@@ -91,7 +106,7 @@ bool	phong_scatter(t_scatter_params p)
 	while (lights)
 	{
 		color = sum(color,
-			lighting(*(t_light*)lights->content, *p.record));
+			lighting(p.job, *(t_light*)lights->content, *p.record));
 		lights = lights->next;
 		index++;
 	}
