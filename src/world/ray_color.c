@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:13:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/07 09:00:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/07 21:36:52 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_pixel	ray_color(t_job *job, t_ray r, int depth)
 			.record = &record,
 			.attenuation = &attenuation,
 			.scattered = &scattered}))
-			return (product(attenuation, ray_color(job, scattered, depth - 1)));
-		return (attenuation);
+			attenuation = product(attenuation, ray_color(job, scattered, depth - 1));
+		return (sum(attenuation, job->ambient));
 	}
 	return (job->bgc);
 }

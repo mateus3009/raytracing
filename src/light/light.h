@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 11:06:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 22:01:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/07 21:27:46 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 typedef struct s_light
 {
-	double	brightness;
 	t_pixel	color;
 	t_point	origin;
 }				t_light;

@@ -6,23 +6,17 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/07 09:17:28 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/07 21:37:33 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phong.h"
 #include "./../../objects/objects.h"
 
-static t_pixel	lighting_ambient(
-	t_light light,
+static t_pixel	lighting_ambient(t_job *job,
 	t_intersection hit)
 {
-	t_phong	material;
-	t_pixel	partial;
-
-	material = *(t_phong*)hit.object.material.data;
-	partial = product(hit.object.material.color, light.color);
-	return (scalar(partial, material.ambient));
+	return (product(hit.object.material.color, job->ambient));
 }
 
 static t_pixel	lighting_diffuse(
@@ -59,7 +53,7 @@ static t_pixel	lighting_specular(
 	if (reflect_dot_eye <= 0)
 		return (pixel(0, 0, 0));
 	return (scalar(light.color,
-			material.specular * pow(reflect_dot_eye, material.shininess)));
+		material.specular * pow(reflect_dot_eye, material.shininess)));
 }
 
 bool	is_shadowed(t_job *job, t_light l, t_intersection rec)
@@ -83,7 +77,7 @@ t_pixel	lighting(t_job *job, t_light l, t_intersection rec)
 
 	result = pixel(0, 0, 0);
 	specular = pixel(0, 0, 0);
-	ambient = lighting_ambient(l, rec);
+	ambient = pixel(0, 0, 0);//lighting_ambient(job, rec);
 	diffuse = lighting_diffuse(l, rec);
 	if (!tuple_equal(diffuse, pixel(0, 0, 0)))
 		specular = lighting_specular(l, rec);

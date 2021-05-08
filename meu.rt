@@ -4,27 +4,27 @@
 
 # A		<double>	<color>
 # A		<lighting>	<color>
- A		0.2			255,255,255
+# A		.0			255,255,255
 
 # BGC	<color>
 # BGC	<background>
- BGC	255,255,255
+# BGC	255,255,255
 
 # TH	<int>
 # TH	<threads>
-  TH	5
+# TH	5
 
 # DP	<int>
 # DP	<depth>
-  DP	100
+# DP	100
 
 # SS	<int>	<int>
 # SS	<min>	<max>
-  SS	200		300
+# SS	200		500
 
 # c		<point>		<point>		<vector>		<double>	<double>
 # c		<look_from>	<look_at>	<up vector>		<HFOV>		<aperture>
-  c		-5,2,-5		0,0,0		0,1,0			60			0.1
+  c		-5,2,-5		0,0,0		0,1,0			30			0.1
 
 # c		<point>		<vector>		<double>
 # c		<origin>	<direction>		<HFOV>
@@ -37,7 +37,6 @@
 # pl	<point>		<vector>		<color>
 # pl	<origin>	<direction>		<color>
   pl	0,-1,0		0,1,0			180,180,180
-	lambertian 180,180,180
 
 # dk	<point>		<vector>		<double>	<color>
 # dk	<origin>	<direction>		<size>		<color>
@@ -46,9 +45,6 @@
 # sp	<point>		<double>		<color>
 # sp	<origin>	<diameter>		<color>
   sp	0,0,0		2				255,255,255
-  lambertian 255,255,255
-  sp	0,0,0		-2.1				255,255,255
-  dielectric 255,255,255 1.33
 
 # sq	<point>		<vector>		<double>	<color>
 # sq	<origin>	<direction>		<size>		<color>
