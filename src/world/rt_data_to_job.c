@@ -6,11 +6,22 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 22:54:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 21:51:15 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 16:07:29 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
+
+static t_camera	*build_camera(t_rt_data rt, t_camera_param *p)
+{
+	t_camera	*cam;
+
+	p->aspect_ratio = rt.resolution.width / rt.resolution.height;
+	cam = camera(*p);
+	if (!cam)
+		fatal("Failed to create a camera");
+	return (cam);
+}
 
 static bool	rt_data_to_single_job(t_rt_data rt, t_job **job)
 {
@@ -30,7 +41,7 @@ static bool	rt_data_to_single_job(t_rt_data rt, t_job **job)
 		.ambient = rt.ambient,
 		.samples = rt.samples,
 		.depth = rt.depth,
-		.camera = *(t_camera*)rt.cameras->content,
+		.camera = build_camera(rt, (t_camera_param*)rt.cameras->content),
 		.objects = rt.objects,
 		.light_points = rt.light_points,
 		.threads = rt.threads,

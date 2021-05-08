@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 22:17:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/07 22:05:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 15:19:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ static bool	process_lines(int fd, t_rt_data *data)
 	}
 }
 
+void	rt_init(t_rt_data *data)
+{
+	ft_bzero(data, sizeof(t_rt_data));
+	data->samples.min = 10;
+	data->samples.max = 20;
+	data->depth = 50;
+	data->threads = 4;
+}
+
 bool	process_file(char *filename, t_rt_data *data)
 {
 	int		fd;
@@ -73,16 +82,6 @@ bool	process_file(char *filename, t_rt_data *data)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (false);
-	data->resolution.width = 0;
-	data->resolution.height = 0;
-	data->samples.min = 10;
-	data->samples.max = 20;
-	data->depth = 50;
-	data->ambient = pixel(0, 0, 0);
-	data->cameras = NULL;
-	data->objects = NULL;
-	data->light_points = NULL;
-	data->threads = 4;
-	data->bgc = pixel(0, 0, 0);
+	rt_init(data);
 	return (process_lines(fd, data));
 }
