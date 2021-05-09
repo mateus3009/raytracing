@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 17:16:16 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 17:19:16 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:41:15 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_object(void *data)
 {
 	t_object	*obj;
 
-	obj = (t_object*)data;
+	obj = (t_object *)data;
 	if (obj->data)
 		free(obj->data);
 	if (obj->material.data)

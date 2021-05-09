@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 09:13:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/03 09:13:48 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:58:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ t_matrix	rotation_quaternion(t_quaternion q)
 	m.values[0][0] = 1 - 2 * s * (q.y * q.y + q.z * q.z);
 	m.values[0][1] = 2 * s * (q.x * q.y - q.z * q.w);
 	m.values[0][2] = 2 * s * (q.x * q.z + q.y * q.w);
-
 	m.values[1][0] = 2 * s * (q.x * q.y + q.z * q.w);
 	m.values[1][1] = 1 - 2 * s * (q.x * q.x + q.z * q.z);
 	m.values[1][2] = 2 * s * (q.y * q.z - q.x * q.w);
-
 	m.values[2][0] = 2 * s * (q.x * q.z - q.y * q.w);
 	m.values[2][1] = 2 * s * (q.y * q.z + q.x * q.w);
 	m.values[2][2] = 1 - 2 * s * (q.x * q.x + q.y * q.y);

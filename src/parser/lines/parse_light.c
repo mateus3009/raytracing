@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 22:11:03 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:52:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	parse_light(t_rt_data *data, void **args)
 	t_list		*temp;
 
 	if (!light(&l,
-		*(double*)args[1], *(t_pixel*)args[2], *(t_point*)args[0]))
+			*(double *)args[1], *(t_pixel *)args[2], *(t_point *)args[0]))
 		return (false);
 	temp = ft_lstnew(l);
 	if (!temp)

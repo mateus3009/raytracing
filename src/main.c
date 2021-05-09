@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:58:25 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 14:51:09 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:39:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,15 @@ int	main(int argc, char **argv)
 	t_display	display;
 	t_list		*canvas;
 
-	if (argc < 2)
+	if (argc < 2 || 3 < argc)
 		fatal("Wrong arguments\nplese, use: ./miniRT <rt_file> <--save?>");
 	if (argc == 3 && ft_strcmp("--save", argv[2]))
 		fatal("Did you mean --save?");
 	if (argc == 3)
+	{
 		to_bmp(argv[1]);
+		return (0);
+	}
 	to_display(argv[1]);
 	return (0);
 }

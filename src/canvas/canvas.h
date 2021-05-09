@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 11:28:30 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 22:16:43 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:07:06 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "./../util/util.h"
 # include "./../tuple/tuple.h"
+
+# define BMP_HEADER_SIZE 14
+# define BMP_INFO_HEADER_SIZE 40
 
 typedef struct s_canvas
 {

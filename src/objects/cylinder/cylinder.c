@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 21:23:41 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:39:04 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	cylinder(t_object **obj, t_cylinder_build params)
 	(*obj)->intersect = cylinder_intersect;
 	(*obj)->normal_at = cylinder_normal_at;
 	(*obj)->material.color = params.color;
-	data = ((t_cylinder*)(*obj)->data);
+	data = ((t_cylinder *)(*obj)->data);
 	data->min = params.height_min;
 	data->max = params.height_max;
 	data->closed = params.is_closed;

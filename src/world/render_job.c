@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:45:02 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 21:54:16 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:04:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*render_job(void *data)
 	t_handle_job_data	jd;
 	t_handle_job_params	jp;
 
-	jd = *(t_handle_job_data*)data;
+	jd = *(t_handle_job_data *)data;
 	jp.y = jd.job->canvas.height;
 	while (--jp.y >= 0)
 	{
@@ -27,7 +27,10 @@ void	*render_job(void *data)
 		if (jd.thread_id == jd.job->threads - 1)
 			jp.end = jd.job->canvas.width;
 		while (++jp.x < jp.end)
-			write_pixel(jd.job->canvas, jp.x, jp.y, render_pixel(jd.job, jp.x, jp.y));
+		{
+			write_pixel(jd.job->canvas, jp.x, jp.y,
+				render_pixel(jd.job, jp.x, jp.y));
+		}
 	}
 	return (NULL);
 }

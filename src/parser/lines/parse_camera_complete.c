@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:30:12 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 21:48:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:50:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ static bool	camera_params(t_camera_param **d, void **argv)
 {
 	t_camera_param	*p;
 
-	if (*(double*)argv[3] < 0 || 180 < *(double*)argv[3])
+	if (*(double *)argv[3] < 0 || 180 < *(double *)argv[3])
 		return (false);
 	p = ft_calloc(sizeof(t_camera_param), 1);
 	if (!p)
 		fatal("erro");
-	p->look_from = *(t_point*)argv[0];
-	p->look_at = *(t_vector*)argv[1];
-	p->up = *(t_vector*)argv[2];
-	p->vertical_field_of_view = *(double*)argv[3];
-	p->aperture = *(double*)argv[4];
+	p->look_from = *(t_point *)argv[0];
+	p->look_at = *(t_vector *)argv[1];
+	p->up = *(t_vector *)argv[2];
+	p->vertical_field_of_view = *(double *)argv[3];
+	p->aperture = *(double *)argv[4];
 	p->focus_distance = length(minus(p->look_at, p->look_from));
 	*d = p;
 	return (true);

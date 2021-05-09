@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 20:22:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 20:48:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:43:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ bool	parse_double(char *in, void **result)
 	*result = malloc(sizeof(double));
 	if (!*result)
 		return (false);
-	**(double**)result = ft_atof(in);
+	**(double **)result = ft_atof(in);
 	return (true);
 }

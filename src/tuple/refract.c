@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:36:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 12:43:19 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:59:21 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_vector	refract(t_vector in, t_vector n, double ratio)
 {
-	double	cos_theta;
+	double		cos_theta;
 	t_vector	r_perp;
 	t_vector	r_parallel;
 

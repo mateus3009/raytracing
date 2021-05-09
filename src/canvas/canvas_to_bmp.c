@@ -6,23 +6,22 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 18:20:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:07:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "canvas.h"
 
-# define BMP_HEADER_SIZE 14
-# define BMP_INFO_HEADER_SIZE 40
-
-static void	write_bmp_header(t_canvas canvas, unsigned char *buffer, unsigned int file_size)
+static void	write_bmp_header(t_canvas canvas,
+	unsigned char *buffer,
+	unsigned int file_size)
 {
 	buffer[0] = 'B';
 	buffer[1] = 'M';
-	buffer[2] =  file_size;
-	buffer[2] =  file_size >> 8;
-	buffer[2] =  file_size >> 16;
-	buffer[2] =  file_size >> 24;
+	buffer[2] = file_size;
+	buffer[2] = file_size >> 8;
+	buffer[2] = file_size >> 16;
+	buffer[2] = file_size >> 24;
 	buffer[10] = BMP_HEADER_SIZE + BMP_INFO_HEADER_SIZE;
 }
 

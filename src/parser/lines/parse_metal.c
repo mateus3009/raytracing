@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 23:59:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:47:46 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ bool	parse_metal(t_rt_data *data, void **argv)
 
 	if (!data->objects)
 		return (false);
-	obj = (t_object*)data->objects->content;
+	obj = (t_object *)data->objects->content;
 	if (obj->material.data)
 		free(obj->material.data);
-	obj->material = metal(*(t_pixel*)argv[0], *(double*)argv[1]);
+	obj->material = metal(*(t_pixel *)argv[0], *(double *)argv[1]);
 	return (true);
 }

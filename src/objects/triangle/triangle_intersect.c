@@ -6,23 +6,11 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 23:09:53 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:41:24 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./triangle.h"
-
-typedef struct s_triangle_params
-{
-	t_vector	d_e2;
-	double		det;
-	t_vector	pl_to_origin;
-	double		f;
-	double		u;
-	t_vector	o_e1;
-	double		v;
-}				t_triangle_params;
-
 
 bool	triangle_intersect(
 	t_object object,
@@ -33,7 +21,7 @@ bool	triangle_intersect(
 	t_triangle			triangle;
 	t_triangle_params	p;
 
-	triangle = *(t_triangle*)object.data;
+	triangle = *(t_triangle *)object.data;
 	p.d_e2 = cross(ray.direction, triangle.e2);
 	p.det = dot(triangle.e1, p.d_e2);
 	if (fabs(p.det) < .000001)

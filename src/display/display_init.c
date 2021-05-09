@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   display_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:55:46 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 12:34:11 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:08:58 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "display.h"
 
-bool display_init(t_display *display)
+bool	display_init(t_display *display)
 {
 	display->mlx = mlx_init();
 	if (!display->mlx)

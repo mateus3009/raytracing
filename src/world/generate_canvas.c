@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   generate_canvas.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 19:47:08 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 14:48:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:04:14 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
-
 
 static void	clamp_screen_size(t_rt_data	*rt, t_display *display)
 {
@@ -32,7 +31,7 @@ static void	*extract_canvas(void *data)
 
 	if (!data)
 		return (NULL);
-	job = (t_job*)data;
+	job = (t_job *)data;
 	c = malloc(sizeof(t_canvas));
 	c->height = job->canvas.height;
 	c->width = job->canvas.width;
@@ -54,7 +53,7 @@ static void	free_job(void	*data)
 {
 	t_job	*job;
 
-	job = (t_job*)data;
+	job = (t_job *)data;
 	free(job->camera);
 	free(job);
 }

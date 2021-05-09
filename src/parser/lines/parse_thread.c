@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 20:39:03 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:51:59 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	parse_thread(t_rt_data *data, void **argv)
 {
 	int	thread;
 
-	thread = *(int*)argv[0];
+	thread = *(int *)argv[0];
 	if (thread < 1)
 		return (false);
 	data->threads = thread;

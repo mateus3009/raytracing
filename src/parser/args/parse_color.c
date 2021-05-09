@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 20:22:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 20:44:18 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:47:28 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	parse_color(char *in, void **result)
 
 	if (!parse_tuple(in, result))
 		return (false);
-	t = *(t_pixel**)result;
+	t = *(t_pixel **)result;
 	t->r /= 255;
 	t->g /= 255;
 	t->b /= 255;

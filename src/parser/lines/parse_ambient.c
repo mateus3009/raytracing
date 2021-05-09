@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/07 21:26:15 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:52:59 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ bool	parse_ambient(t_rt_data *data, void **argv)
 {
 	double	ratio;
 
-	ratio = *(double*)argv[0];
+	ratio = *(double *)argv[0];
 	if (ratio < 0 || 1 < ratio)
 		return (false);
-	data->ambient = scalar(*(t_pixel*)argv[1], *(double*)argv[0]);
+	data->ambient = scalar(*(t_pixel *)argv[1], *(double *)argv[0]);
 	return (true);
 }

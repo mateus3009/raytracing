@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 11:06:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/07 21:27:46 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 15:10:55 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef struct s_light
 	t_point	origin;
 }				t_light;
 
-bool	light(t_light **light, double brightness, t_pixel color, t_point origin);
+bool	light(t_light **light,
+			double brightness,
+			t_pixel color,
+			t_point origin);
 
 #endif

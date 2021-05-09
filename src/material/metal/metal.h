@@ -6,11 +6,11 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:14:32 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 21:08:27 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:32:07 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	METAL_H
+#ifndef METAL_H
 # define METAL_H
 
 # include "./../material.h"

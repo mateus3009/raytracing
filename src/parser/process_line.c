@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:56:26 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 00:39:10 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:24:29 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ bool	process_line(t_rt_data *data, char *line)
 	argc = count_strtoken(argv);
 	arg_parsed = NULL;
 	status = *line == '#' || *line == '\n';
-	if (!argc
-		|| !find_parser(argv[0], argc, &parser)
+	if (!argc || !find_parser(argv[0], argc, &parser)
 		|| !process_args(argc, argv, parser.arg_parsers, &arg_parsed)
-		|| !parser.line_parser(data, arg_parsed)
-		|| (status = true))
+		|| !parser.line_parser(data, arg_parsed) || (status = true))
 	{
 		free(line);
 		free_strtoken(&argv);

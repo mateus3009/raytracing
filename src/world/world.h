@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 20:15:11 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:03:41 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ typedef struct s_job
 	t_pixel				bgc;
 }				t_job;
 
-typedef	struct s_handle_job_data
+typedef struct s_handle_job_data
 {
 	t_job	*job;
 	int		thread_id;
 }				t_handle_job_data;
 
-typedef	struct s_handle_job_params
+typedef struct s_handle_job_params
 {
 	int		y;
 	int		x;

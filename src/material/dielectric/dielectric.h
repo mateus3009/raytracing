@@ -6,11 +6,11 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:14:32 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 21:07:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 16:35:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	DIELECTRIC_H
+#ifndef DIELECTRIC_H
 # define DIELECTRIC_H
 
 # include "./../material.h"
