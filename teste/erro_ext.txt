@@ -1,0 +1,19 @@
+# R		<int>		<int>
+# R		<width>		<height>
+  R		100			-100
+
+# A		<double>	<color>
+# A		<lighting>	<color>
+  A		1			-1,-1,1
+
+# c		<point>		<vector>		<double>
+# c		<origin>	<direction>		<HFOV>
+  c		0,2,-10		0,0,1			70
+
+# l		<point>		<double>		<color>
+# l		<origin>	<brightness>	<color>
+  l		0,10,0		0.6				255,255,255
+
+# sp	<point>		<double>		<color>
+# sp	<origin>	<diameter>		<color>
+  sp	0,0,0		2				255,255,255

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 20:42:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 17:46:18 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 
 bool	parse_samples(t_rt_data *data, void **argv)
 {
-	int	min;
-	int	max;
-
-	min = *(int*)argv[0];
-	max = *(int*)argv[1];
-	if (min < 1 || max < 1 || max < min)
+	if (*(int*)argv[0] < 1)
 		return (false);
-	data->samples.min = min;
-	data->samples.max = max;
+	data->samples = *(int*)argv[0];
 	return (true);
 }

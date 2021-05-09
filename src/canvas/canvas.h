@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 11:28:30 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 19:57:19 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 18:15:34 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_canvas
 }				t_canvas;
 
 t_canvas		canvas_init(int width, int height);
-void			canvas_destroy(t_canvas canvas);
+void			canvas_destroy(void *data);
 void			write_pixel(
 					t_canvas canvas,
 					int width,

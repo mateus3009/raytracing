@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/21 21:45:27 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 18:20:49 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static void	bmp(t_canvas canvas, int fd)
 	write_bmp_body(canvas, buffer + BMP_HEADER_SIZE + BMP_INFO_HEADER_SIZE);
 	if (write(fd, buffer, file_size * sizeof(unsigned char)) < 0)
 		exit(EXIT_FAILURE);
+	free(buffer);
 }
 
 void	canvas_to_bmp(t_canvas canvas, char *filename)
@@ -88,4 +89,5 @@ void	canvas_to_bmp(t_canvas canvas, char *filename)
 	if (fd <= 0)
 		exit(EXIT_FAILURE);
 	bmp(canvas, fd);
+	close(fd);
 }

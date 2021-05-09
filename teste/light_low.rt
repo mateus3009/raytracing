@@ -1,0 +1,23 @@
+# R		<int>		<int>
+# R		<width>		<height>
+  R		500			500
+
+# A		<double>	<color>
+# A		<lighting>	<color>
+  A		1			1,1,1
+
+# AA	<int>
+# AA	<min>
+  AA	1
+
+# c		<point>		<vector>		<double>
+# c		<origin>	<direction>		<HFOV>
+  c		0,3,5		0,0,1			20
+
+# l		<point>		<double>		<color>
+# l		<origin>	<brightness>	<color>
+  l		0,10,0		0.1				255,255,255
+
+# sp	<point>		<double>		<color>
+# sp	<origin>	<diameter>		<color>
+  sp	0,0,0		2				255,255,255

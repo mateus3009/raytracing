@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:45:02 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 17:04:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 18:45:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ bool	render_job_with_threads(t_job *job)
 			return (false);
 		}
 	}
+	free (threads);
+	free(data);
 	return (true);
 }

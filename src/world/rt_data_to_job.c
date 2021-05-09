@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 22:54:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 16:07:29 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 19:24:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	rt_data_to_single_job(t_rt_data rt, t_job **job)
 	*job = malloc(sizeof(t_job));
 	if (!*job)
 	{
-		canvas_destroy(canvas);
+		canvas_destroy(&canvas);
 		return (false);
 	}
 	**job = (t_job){
@@ -54,6 +54,7 @@ bool	rt_data_to_job(t_rt_data rt, t_list	**jobs)
 	t_job	*job;
 	t_list	*container;
 
+	job = NULL;
 	*jobs = NULL;
 	while (rt.cameras)
 	{

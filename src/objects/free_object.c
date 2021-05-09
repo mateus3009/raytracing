@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas_destroy.c                                   :+:      :+:    :+:   */
+/*   free_object.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 11:29:23 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 19:22:18 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/08 17:16:16 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/08 17:19:16 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "canvas.h"
+#include "objects.h"
 
-void	canvas_destroy(void *data)
+void	free_object(void *data)
 {
-	t_canvas	*canvas;
+	t_object	*obj;
 
-	canvas = (t_canvas*)data;
-	if (canvas && canvas->pixels)
-		free(canvas->pixels);
-	free(canvas);
+	obj = (t_object*)data;
+	if (obj->data)
+		free(obj->data);
+	if (obj->material.data)
+		free(obj->material.data);
+	free(obj);
 }

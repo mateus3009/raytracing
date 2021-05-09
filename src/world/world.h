@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:39:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 15:42:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 20:15:11 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@
 # include "./../camera/camera.h"
 # include "./../light/light.h"
 # include "./../parser/parser.h"
+# include "./../display/display.h"
 
 typedef struct s_job
 {
 	t_canvas			canvas;
 	t_pixel				ambient;
-	t_samples_pixel		samples;
+	int					samples;
 	int					depth;
 	t_camera			*camera;
 	t_list				*objects;
@@ -58,5 +59,6 @@ t_pixel	render_pixel(t_job *job, int x, int y);
 void	*render_job(void *data);
 bool	rt_data_to_job(t_rt_data rt, t_list	**jobs);
 bool	render_job_with_threads(t_job *job);
+t_list	*generate_canvas(char *filename, t_display *display);
 
 #endif

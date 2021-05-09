@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 22:17:41 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 15:19:34 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/08 19:29:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static bool	process_lines(int fd, t_rt_data *data)
 			free(line);
 			return (false);
 		}
+		free(line);
 		if (!status)
 			return (true);
 		index++;
@@ -63,10 +64,9 @@ static bool	process_lines(int fd, t_rt_data *data)
 void	rt_init(t_rt_data *data)
 {
 	ft_bzero(data, sizeof(t_rt_data));
-	data->samples.min = 10;
-	data->samples.max = 20;
+	data->samples = 10;
 	data->depth = 50;
-	data->threads = 4;
+	data->threads = 1;
 }
 
 bool	process_file(char *filename, t_rt_data *data)
