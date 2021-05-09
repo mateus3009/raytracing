@@ -3,22 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   generate_canvas.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 19:47:08 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 21:21:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 14:48:55 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
 
 
-static void	clamp_screen_size(t_rt_data	rt, t_display display)
+static void	clamp_screen_size(t_rt_data	*rt, t_display *display)
 {
-	if (rt.resolution.height > display.height)
-		rt.resolution.height = display.height;
-	if (rt.resolution.width > display.width)
-		rt.resolution.width = display.width;
+	if (rt->resolution.height > display->height)
+		rt->resolution.height = display->height;
+	else
+		display->height = rt->resolution.height;
+	if (rt->resolution.width > display->width)
+		rt->resolution.width = display->width;
+	else
+		display->width = rt->resolution.width;
 }
 
 static void	*extract_canvas(void *data)
@@ -64,9 +68,9 @@ t_list	*generate_canvas(char *filename, t_display *display)
 	if (!process_file(filename, &rt))
 		fatal("Failed to process the RT file");
 	if (!rt_data_to_job(rt, &jobs) || !jobs)
-		fatal("Failed to process the RT file");
+		fatal("There is no camera");
 	if (display)
-		clamp_screen_size(rt, *display);
+		clamp_screen_size(&rt, display);
 	ft_lstclear(&rt.cameras, free);
 	render_all_jobs(jobs);
 	canvas = ft_lstmap(jobs, extract_canvas, NULL);

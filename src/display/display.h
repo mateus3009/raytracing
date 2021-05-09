@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:52:46 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 12:37:40 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 12:50:22 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define DISPLAY_H
 
 # include "./../util/util.h"
+# include "./../tuple/tuple.h"
+# include "./../canvas/canvas.h"
 
 # define KEY_ESC 65307
 # define KEY_S 115
@@ -45,5 +47,8 @@ int		display_destroy(t_display *display);
 int		display_handle_key(int keynum, t_display *display);
 bool	display_init(t_display	*display);
 bool	display_init_window(t_display *display);
+void	display_destroy_images(t_display *display);
+bool	display_init_images(t_display *display, int size);
+bool	all_canvas_to_images(t_list *canvas, t_display *display);
 
 #endif

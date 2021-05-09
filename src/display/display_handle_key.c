@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 12:11:17 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 12:11:40 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 13:39:38 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,15 @@ int		display_handle_key(int keynum, t_display *display)
 {
 	if (keynum == KEY_ESC)
 		display_destroy(display);
+	if (keynum == KEY_LEFT)
+	{
+		display->img_current--;
+		display_expose(display);
+	}
+	if (keynum == KEY_RIGHT)
+	{
+		display->img_current++;
+		display_expose(display);
+	}
 	return (1);
 }
