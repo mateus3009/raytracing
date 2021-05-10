@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:39:04 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 01:13:24 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ bool	cylinder(t_object **obj, t_cylinder_build params)
 	data->max = params.height_max;
 	data->closed = params.is_closed;
 	add_transformation(*obj,
-		scaling(params.radius, params.radius, params.radius));
-	add_transformation(*obj,
 		translate(params.origin.x, params.origin.y, params.origin.z));
 	add_transformation(*obj,
 		from_to_rotation(vector(0, 1, 0), params.direction));
+	add_transformation(*obj,
+		scaling(params.radius, 1, params.radius));
 	return (true);
 }

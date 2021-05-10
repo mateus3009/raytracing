@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 21:24:02 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 00:52:06 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ bool	sphere(t_object **obj, t_sphere_build params)
 	(*obj)->normal_at = sphere_normal_at;
 	(*obj)->material.color = params.color;
 	add_transformation(*obj,
-		scaling(params.radius, params.radius, params.radius));
-	add_transformation(*obj,
 		translate(params.origin.x, params.origin.y, params.origin.z));
+	add_transformation(*obj,
+		scaling(params.radius, params.radius, params.radius));
 	return (true);
 }

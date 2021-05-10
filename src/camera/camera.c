@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 19:27:44 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/10 00:04:16 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 01:25:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_camera	*camera(t_camera_param c)
 	viewport_width = c.aspect_ratio * viewport_height;
 	camera->origin = c.look_from;
 	camera->z = normalize(minus(camera->origin, c.look_at));
-	camera->x = normalize(cross(c.up, camera->z));
-	camera->y = cross(camera->z, camera->x);
+	camera->x = scalar(normalize(cross(c.up, camera->z)), -1);
+	camera->y = scalar(cross(camera->z, camera->x), -1);
 	camera->horizontal = scalar(camera->x, viewport_width * c.focus_distance);
 	camera->vertical = scalar(camera->y, viewport_height * c.focus_distance);
 	camera->coner = minus(camera->origin, divide(camera->horizontal, 2));

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:12:18 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 17:11:55 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 01:41:02 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ t_pixel	render_pixel(t_job *job, int x, int y)
 					/ (double)(job->canvas.width - 1),
 					(y + ft_rand())
 					/ (double)(job->canvas.height - 1)));
-	return (gamma_correction(color, job->samples));
+	return (divide(color, job->samples));
 }
