@@ -6,7 +6,7 @@
 #    By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/02 18:57:50 by msales-a          #+#    #+#              #
-#    Updated: 2021/05/05 09:15:18 by msales-a         ###   ########.fr        #
+#    Updated: 2021/05/10 02:08:23 by msales-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ SOURCES := $(shell find src -type f -name *.c)
 
 OBJECTS := $(addprefix target/,$(SOURCES:.c=.o))
 
-LIBRARIES = ./lib/libft/libft.a ./lib/minilibx-linux/libmlx.a
+LIBRARIES = ./lib/libft/libft.a
 
 CC := clang
 
-CC_FLAGS := -Wall -Wextra -Werror -g -lm -L./lib/libft -lft -L./lib/minilibx-linux -lmlx -lXext -lX11 -lbsd -pthread
+CC_FLAGS := -Wall -Wextra -Werror -g -lm -L./lib/libft -lft -lbsd -lmlx -lXext -lX11 -pthread
 
 all : $(PRODUCT)
 
@@ -43,4 +43,3 @@ target/%.o : %.c
 
 $(LIBRARIES) :
 	@$(MAKE) -C ./lib/libft
-	@$(MAKE) -C ./lib/minilibx-linux

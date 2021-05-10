@@ -6,14 +6,14 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 07:49:16 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 02:09:36 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTIL_H
 # define UTIL_H
 
-# include "./../../lib/minilibx-linux/mlx.h"
+# include "mlx.h"
 # include "./../../lib/libft/srcs/libft.h"
 
 # include <math.h>
