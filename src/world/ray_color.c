@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:13:29 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:08:07 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 17:56:14 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_pixel	ray_color(
 	t_intersection		record;
 	t_pixel				attenuation;
 	t_ray				scattered;
+	t_pixel				ambient;
 
 	if (depth <= 0)
 		return (pixel(0, 0, 0));
@@ -37,7 +38,8 @@ t_pixel	ray_color(
 			attenuation = product(attenuation,
 					ray_color(job, scattered, depth - 1));
 		}
-		return (sum(attenuation, job->ambient));
+		ambient = product(job->ambient, params.material.color);
+		return (sum(attenuation, ambient));
 	}
 	return (job->bgc);
 }

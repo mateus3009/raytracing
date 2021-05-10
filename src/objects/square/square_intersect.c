@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/04 19:18:21 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 17:19:57 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	square_intersect(
 {
 	double	n;
 
-	if (fabs(ray.direction.y) < .0001)
+	if (fabs(ray.direction.y) < .0000001)
 		return (false);
 	*t = -ray.origin.y / ray.direction.y;
 	if (*t < 0 || *t < range.min || range.max < *t)

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 22:54:22 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/08 19:24:53 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 00:01:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_camera	*build_camera(t_rt_data rt, t_camera_param *p)
 {
 	t_camera	*cam;
 
-	p->aspect_ratio = rt.resolution.width / rt.resolution.height;
+	p->aspect_ratio = rt.resolution.width / (double)rt.resolution.height;
 	cam = camera(*p);
 	if (!cam)
 		fatal("Failed to create a camera");

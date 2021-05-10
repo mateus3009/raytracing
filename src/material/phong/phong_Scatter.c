@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:30:57 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/09 17:46:30 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,6 @@ bool	phong_scatter(t_scatter_params p)
 		lights = lights->next;
 		index++;
 	}
-	if (index)
-		color = divide(color, index);
-	*p.attenuation = color;
+	*p.attenuation = clamp_tuple(color, 0, 1);
 	return (false);
 }
