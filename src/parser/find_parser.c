@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:55:39 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/11 01:52:31 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 16:54:28 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,16 @@ t_rt_parser	*g_rt_parsers = (t_rt_parser[]){
 			parse_vector,
 			parse_double,
 			parse_double,
+			parse_color}},
+	{.id = "cn",
+		.argc = 5,
+		.line_parser = parse_cone_capped,
+		.arg_parsers = (t_rt_arg_parser[]){
+			parse_point,
+			parse_vector,
+			parse_double,
+			parse_double,
+			parse_int,
 			parse_color}},
 	{.id = "tr",
 		.argc = 4,

@@ -48,24 +48,26 @@ static bool	get_roots(t_ray ray, t_range range, t_cone_param *p)
 		|| (range.min < p->x2 && p->x2 < range.max));
 }
 
-static bool	check_roots(t_ray ray, t_cone_param p, t_cone c, double *t)
+static bool	check_roots(t_cone_check k)
 {
 	bool	valid;
 	double	y;
 
-	*t = INFINITY;
+	*k.t = INFINITY;
 	valid = false;
-	y = ray.origin.y + p.x1 * ray.direction.y;
-	if (c.min < y && y < c.max)
+	y = k.ray.origin.y + k.p.x1 * k.ray.direction.y;
+	if (k.c.min < y && y < k.c.max
+		&& k.range.min < k.p.x1 && k.p.x1 < k.range.max)
 	{
 		valid = true;
-		*t = p.x1;
+		*k.t = k.p.x1;
 	}
-	y = ray.origin.y + p.x2 * ray.direction.y;
-	if (c.min < y && y < c.max && p.x2 < *t)
+	y = k.ray.origin.y + k.p.x2 * k.ray.direction.y;
+	if (k.c.min < y && y < k.c.max && k.p.x2 < *k.t
+		&& k.range.min < k.p.x2 && k.p.x2 < k.range.max)
 	{
 		valid = true;
-		*t = p.x2;
+		*k.t = k.p.x2;
 	}
 	return (valid);
 }
@@ -78,11 +80,13 @@ bool	cone_intersect_body(
 {
 	t_cone			c;
 	t_cone_param	p;
+	t_cone_check	k;
 
 	c = *(t_cone *)object.data;
 	if (!get_roots(ray, range, &p))
 		return (false);
-	if (!check_roots(ray, p, c, t))
+	k = (t_cone_check){.ray = ray, .p = p, .c = c, .t = t, .range = range};
+	if (!check_roots(k))
 		return (false);
 	return (true);
 }

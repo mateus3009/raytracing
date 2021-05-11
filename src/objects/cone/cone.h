@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 00:34:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:42:11 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ typedef struct s_cone_build
 	double		height_max;
 	bool		is_closed;
 }				t_cone_build;
+
+typedef struct s_cone_check
+{
+	t_ray			ray;
+	t_cone_param	p;
+	t_cone			c;
+	double			*t;
+	t_range			range;
+}				t_cone_check;
 
 bool			cone(t_object **obj, t_cone_build params);
 bool			cone_intersect_body(
