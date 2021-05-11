@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   canvas_to_bmp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:08:28 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:07:37 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 13:49:03 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	write_bmp_body(t_canvas canvas, unsigned char *buffer)
 		column = canvas.width;
 		while (column--)
 		{
-			pixel = *(canvas.pixels + (row * canvas.width) + column);
+			pixel = get_pixel(canvas, canvas.width - 1 - column, row);
 			buffer[2] = clamp(pixel.r * 255, 0, 255);
 			buffer[1] = clamp(pixel.g * 255, 0, 255);
 			buffer[0] = clamp(pixel.b * 255, 0, 255);
