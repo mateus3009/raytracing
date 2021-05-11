@@ -12,7 +12,7 @@
 
 # TH	<int>
 # TH	<threads>
-# TH	5
+ TH	3
 
 # DP	<int>
 # DP	<depth>

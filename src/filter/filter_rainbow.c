@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/11 01:35:20 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 07:37:56 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 t_pixel	filter_rainbow(t_intersection *rec)
 {
 	return (divide(
-		sum(normalize(rec->normal), vector(1, 1, 1)), 2));
+			sum(normalize(rec->normal), vector(1, 1, 1)), 2));
 }

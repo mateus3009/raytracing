@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 19:47:08 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:04:14 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 08:53:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,22 @@ static void	*extract_canvas(void *data)
 
 static void	render_all_jobs(t_list *job)
 {
+	t_handle_job_data	data;
+	int					threads;
+
 	if (job)
 	{
-		if (!render_job_with_threads(job->content))
-			fatal("Failed to render the image");
+		threads = ((t_job *)job->content)->threads;
+		if (threads > 1)
+		{
+			if (!render_job_with_threads(job->content))
+				fatal("Failed to render the image");
+		}
+		else
+		{
+			data = (t_handle_job_data){.job = job->content, .thread_id = 0};
+			render_job(&data);
+		}
 		render_all_jobs(job->next);
 	}
 }

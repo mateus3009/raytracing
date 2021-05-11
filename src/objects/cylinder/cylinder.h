@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 00:32:43 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 07:43:42 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ typedef struct s_cylinder_build
 	double		height_max;
 	bool		is_closed;
 }				t_cylinder_build;
+
+typedef struct s_cylinder_param_roots
+{
+	t_ray				ray;
+	t_cylinder_param	p;
+	t_cylinder			c;
+	double				*t;
+	t_range				range;
+}				t_cylinder_param_roots;
 
 bool			cylinder(t_object **obj, t_cylinder_build params);
 bool			cylinder_intersect_body(

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/11 00:26:15 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 07:47:57 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,26 @@ static bool	get_roots(t_ray ray, t_range range, t_cylinder_param *p)
 		|| (range.min < p->x2 && p->x2 < range.max));
 }
 
-static bool	check_roots(t_ray ray, t_cylinder_param p, t_cylinder c, double *t, t_range range)
+static bool	check_roots(t_cylinder_param_roots a)
 {
 	bool	valid;
 	double	y;
 
-	*t = INFINITY;
+	*a.t = INFINITY;
 	valid = false;
-	y = ray.origin.y + p.x1 * ray.direction.y;
-	if (c.min < y && y < c.max && range.min < p.x1 && p.x1 < range.max)
+	y = a.ray.origin.y + a.p.x1 * a.ray.direction.y;
+	if (a.c.min < y && y < a.c.max
+		&& a.range.min < a.p.x1 && a.p.x1 < a.range.max)
 	{
 		valid = true;
-		*t = p.x1;
+		*a.t = a.p.x1;
 	}
-	y = ray.origin.y + p.x2 * ray.direction.y;
-	if (c.min < y && y < c.max && p.x2 < *t && range.min < p.x2 && p.x2 < range.max)
+	y = a.ray.origin.y + a.p.x2 * a.ray.direction.y;
+	if (a.c.min < y && y < a.c.max && a.p.x2 < *a.t
+		&& a.range.min < a.p.x2 && a.p.x2 < a.range.max)
 	{
 		valid = true;
-		*t = p.x2;
+		*a.t = a.p.x2;
 	}
 	return (valid);
 }
@@ -75,7 +77,12 @@ bool	cylinder_intersect_body(
 	c = *(t_cylinder *)object.data;
 	if (!get_roots(ray, range, &p))
 		return (false);
-	if (!check_roots(ray, p, c, t, range))
+	if (!check_roots((t_cylinder_param_roots){
+			.ray = ray,
+			.p = p,
+			.c = c,
+			.t = t,
+			.range = range}))
 		return (false);
 	return (true);
 }

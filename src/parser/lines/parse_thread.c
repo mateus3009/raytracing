@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:51:59 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 08:47:37 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ bool	parse_thread(t_rt_data *data, void **argv)
 	if (thread < 1)
 		return (false);
 	data->threads = thread;
+	if (thread > 4)
+		data->threads = 4;
 	return (true);
 }
