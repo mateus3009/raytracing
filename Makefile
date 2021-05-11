@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+         #
+#    By: msales-a <msales-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/02 18:57:50 by msales-a          #+#    #+#              #
-#    Updated: 2021/05/11 16:31:28 by msales-a         ###   ########.fr        #
+#    Updated: 2021/05/11 17:45:30 by msales-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ $(PRODUCT) : $(OBJECTS) $(LIBRARIES)
 
 clean :
 	@rm -rf ./target/src ./target/test
+	@$(MAKE) clean -C ./lib/libft
 
 fclean :
 	@rm -f $(PRODUCT) $(PRODUCT)_test
+	@$(MAKE) fclean -C ./lib/libft
 
 re : all clean
 
