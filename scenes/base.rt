@@ -4,7 +4,7 @@
 
 # A		<double>	<color>
 # A		<lighting>	<color>
-  A		1		1,1,1
+  A		.2			255,255,255
 
 # BGC	<color>
 # BGC	<background>
@@ -24,9 +24,9 @@
 
 # c		<point>		<point>		<vector>		<double>	<double>
 # c		<look_from>	<look_at>	<up vector>		<HFOV>		<aperture>
-  c		0,0,10		0,0,0		0,1,0			30			0.1
-  c		7,0,7		0,0,0		0,1,0			30			0.1
-  c		10,0,0		0,0,0		0,1,0			30			0.1
+  c		0,0,10		0,0,0		0,1,0			30			0
+  c		7,0,7		0,0,0		0,1,0			30			0
+  c		10,0,0		0,0,0		0,1,0			30			0
 
 # c		<point>		<vector>		<double>
 # c		<origin>	<direction>		<HFOV>
@@ -47,7 +47,7 @@
 
 # sp	<point>		<double>		<color>
 # sp	<origin>	<diameter>		<color>
-  sp	0,0,0		2				255,255,255
+#  sp	0,0,0		2				255,255,255
 
 # sq	<point>		<vector>		<double>	<color>
 # sq	<origin>	<direction>		<size>		<color>
@@ -55,7 +55,7 @@
 
 # cb	<point>		<vector>		<double>	<color>
 # cb	<origin>	<direction>		<size>		<color>
-# cb	3.5,1,2		1,0,0.8			3			180,180,180
+  cb	0,0,0		0,1,0			3			180,180,180
 
 # cy	<point>		<vector>		<double>	<double>	<color>
 # cy	<origin>	<direction>		<diameter>	<height>	<color>

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_strtoken.c                                   :+:      :+:    :+:   */
+/*   parse_rotation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 22:30:33 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/27 22:31:54 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/10 17:14:17 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "parser_lines.h"
 
-int	count_strtoken(char	**tokens)
+bool	parse_rotation(t_rt_data *data, void **argv)
 {
-	int	count;
+	t_object	*obj;
 
-	count = 0;
-	while (tokens && *tokens++)
-		count++;
-	return (count);
+	if (!data->objects)
+		return (true);
+	obj = (t_object *)data->objects->content;
+	add_transformation(obj,
+		rotatexyz(
+			degrees_to_radians(*(double *)argv[0]),
+			degrees_to_radians(*(double *)argv[1]),
+			degrees_to_radians(*(double *)argv[2])));
+	return (true);
 }

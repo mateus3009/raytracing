@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 21:03:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/10 02:09:36 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 09:51:13 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ double	ft_rand(void);
 void	ft_srand(unsigned long long int seed);
 double	clamp(double value, double min, double max);
 double	ft_rand_range(double min, double max);
-int		count_strtoken(char	**tokens);
-void	free_strtoken(char	***tokens);
+void	free_strtoken(char	***tokens, int argc);
 void	fatal(char	*msg);
 
 #endif

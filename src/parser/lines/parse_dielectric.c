@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:00:45 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:49:42 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 17:00:26 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	parse_dielectric(t_rt_data *data, void **argv)
 	t_object	*obj;
 
 	if (!data->objects)
-		return (false);
+		return (true);
 	obj = (t_object *)data->objects->content;
 	if (obj->material.data)
 		free(obj->material.data);

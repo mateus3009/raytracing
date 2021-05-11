@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:45:02 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:22:21 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 21:04:29 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 static bool	clean_threads_and_data(
 	int size,
-	pthread_t *threads,
-	t_handle_job_data *data)
+	pthread_t **threads,
+	t_handle_job_data **data)
 {
 	while (size--)
-		pthread_cancel(threads[size]);
-	free (threads);
-	free(data);
+		pthread_cancel((*threads)[size]);
+	free (*threads);
+	free(*data);
 	return (false);
 }
 
@@ -55,7 +55,7 @@ static bool	init_thread_and_data(
 		(*data)[index] = (t_handle_job_data){.job = job, .thread_id = index};
 		if (pthread_create(&((*threads)[index]),
 			NULL, render_job, &((*data)[index])))
-			return (clean_threads_and_data(index, *threads, *data));
+			return (clean_threads_and_data(index, threads, data));
 	}
 	return (true);
 }
@@ -71,9 +71,9 @@ static bool	wait_threads_and_free(
 	while (++index < job->threads)
 	{
 		if (pthread_join((*threads)[index], NULL))
-			return (clean_threads_and_data(index, *threads, *data));
+			return (clean_threads_and_data(index, threads, data));
 	}
-	return (!clean_threads_and_data(index, *threads, *data));
+	return (!clean_threads_and_data(index, threads, data));
 }
 
 bool	render_job_with_threads(t_job *job)

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 17:46:30 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 00:11:50 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ bool	phong_scatter(t_scatter_params p)
 	while (lights)
 	{
 		color = sum(color,
-				lighting(p.job, *(t_light *)lights->content, *p.record));
+				lighting(p.job, *(t_light *)(lights->content), *(p.record)));
 		lights = lights->next;
 		index++;
 	}

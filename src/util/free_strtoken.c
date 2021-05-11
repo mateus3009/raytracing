@@ -6,21 +6,18 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 22:30:33 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 17:43:45 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 09:52:57 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "util.h"
 
-void	free_strtoken(char	***tokens)
+void	free_strtoken(char	***tokens, int argc)
 {
-	int	index;
-
 	if (tokens && *tokens)
 	{
-		index = 0;
-		while (*(*tokens + index))
-			free(*(*tokens + index++));
+		while (argc--)
+			free((*tokens)[argc]);
 		free(*tokens);
 	}
 }

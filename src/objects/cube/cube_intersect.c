@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:30:11 by msales-a          #+#    #+#             */
-/*   Updated: 2021/04/18 23:57:59 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:08:42 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static t_range	check_axis(double origin, double direction)
 	double	min;
 	double	max;
 
+	if (direction < 0.00001)
+		return ((t_range){.min = -1, .max = -1});
 	min = (-1 - origin) / direction;
 	max = (1 - origin) / direction;
 	if (min > max)

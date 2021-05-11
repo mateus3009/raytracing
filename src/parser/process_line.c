@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:56:26 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:24:29 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/10 09:53:38 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	process_line(t_rt_data *data, char *line)
 		return (false);
 	ft_strreplace_all('\t', ' ', ft_strreplace_all('\r', ' ', line));
 	argv = ft_split(line, ' ');
-	argc = count_strtoken(argv);
+	argc = ft_count_segment(line, ' ');
 	arg_parsed = NULL;
 	status = *line == '#' || *line == '\n';
 	if (!argc || !find_parser(argv[0], argc, &parser)
@@ -44,7 +44,7 @@ bool	process_line(t_rt_data *data, char *line)
 		|| !parser.line_parser(data, arg_parsed) || (status = true))
 	{
 		free(line);
-		free_strtoken(&argv);
+		free_strtoken(&argv, argc);
 		if (arg_parsed)
 			clear_arg_parsers_results(argc, &arg_parsed);
 		return (status || !argc);
