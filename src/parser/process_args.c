@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:54:19 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:54:29 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 02:03:51 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	process_args(int argc,
 {
 	int	index;
 
-	if (!parsers)
+	if (!parsers || !*parsers)
 		return (true);
 	*results = malloc(sizeof(void *) * argc);
 	if (!*results)

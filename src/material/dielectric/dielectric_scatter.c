@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:35:19 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:24:53 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,22 @@ bool	dielectric_scatter(t_scatter_params p)
 	double			cos_theta;
 	double			sin_theta;
 
-	m = *(t_dielectric *)p.material.data;
+	m = *(t_dielectric *)p.record->object.material.data;
 	ratio = m.refraction_ratio;
 	if (p.record->front_face)
 		ratio = 1. / ratio;
-	ndirection = normalize(p.ray.direction);
+	ndirection = normalize(p.record->ray.direction);
 	cos_theta = fmin(dot(scalar(ndirection, -1), p.record->normal), 1.);
 	sin_theta = sqrt(1. - cos_theta * cos_theta);
 	if (ratio * sin_theta > 1. || reflectance(cos_theta, ratio) > ft_rand())
 	{
-		*p.scattered = ray(p.record->point,
-				reflect(normalize(p.ray.direction), p.record->normal));
+		*p.scattered = ray(p.record->point, reflect(normalize(
+			p.record->ray.direction), p.record->normal));
 	}
 	else
 	{
-		*p.scattered = ray(p.record->point,
-				refract(normalize(p.ray.direction), p.record->normal, ratio));
+		*p.scattered = ray(p.record->point, refract(normalize(
+			p.record->ray.direction), p.record->normal, ratio));
 	}
 	*p.attenuation = pixel(1, 1, 1);
 	return (true);

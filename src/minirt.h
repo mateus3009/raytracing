@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:59:14 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/01 19:57:49 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:18:45 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@
 # include "./light/light.h"
 # include "./display/display.h"
 # include "./parser/parser.h"
+# include "./filter/filter.h"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:10:13 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/05 21:23:12 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:17:33 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_object
 	t_matrix	matrix;
 	t_matrix	inverse_matrix;
 	t_material	material;
+	t_pixel		(*filter)(t_intersection *rec);
 	bool		(*intersect)(
 					t_object object,
 					t_ray ray,

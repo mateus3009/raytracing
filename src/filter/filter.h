@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_normal_scatter.c                             :+:      :+:    :+:   */
+/*   filter.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:27:07 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/11 01:03:36 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/11 02:09:58 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color_normal.h"
-#include "./../../objects/objects.h"
+#ifndef FILTER_H
+# define FILTER_H
 
-bool	color_normal_scatter(t_scatter_params p)
-{
-	*p.attenuation = divide(
-			sum(normalize(p.record->normal), vector(1, 1, 1)), 2);
-	return (false);
-}
+#include "./../util/util.h"
+#include "./../tuple/tuple.h"
+
+struct							s_object;
+struct							s_intersection;
+
+typedef struct s_object			t_object;
+typedef struct s_intersection	t_intersection;
+
+t_pixel							filter_rainbow(t_intersection *rec);
+t_pixel							filter(t_intersection *rec);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/10 23:55:51 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:43:42 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	parse_cylinder(t_rt_data *data, void	**args)
 	if (!cylinder(&obj, (t_cylinder_build){
 			.origin = *(t_point *)args[0],
 			.direction = *(t_vector *)args[1],
-			.is_closed = true,
+			.is_closed = false,
 			.radius = *(double *)args[2] / 2.,
 			.height_min = - *(double *)args[3] / 2.,
 			.height_max = *(double *)args[3] / 2.,

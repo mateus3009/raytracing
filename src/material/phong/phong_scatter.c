@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phong_Scatter.c                                    :+:      :+:    :+:   */
+/*   phong_scatter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:36:48 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/11 00:11:50 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 02:12:47 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_pixel	lighting_diffuse(
 	double		light_dot_normal;
 
 	material = *(t_phong *)hit.object.material.data;
-	partial = product(hit.object.material.color, light.color);
+	partial = product(filter(&hit), light.color);
 	light_direction = normalize(minus(light.origin, hit.point));
 	light_dot_normal = dot(light_direction, hit.normal);
 	if (light_dot_normal < 0)
@@ -68,13 +68,13 @@ t_pixel	lighting(t_job *job, t_light l, t_intersection rec)
 	t_pixel	diffuse;
 	t_pixel	specular;
 
-	result = pixel(0, 0, 0);
 	specular = pixel(0, 0, 0);
+	if (is_shadowed(job, l, rec))
+		return (specular);
 	diffuse = lighting_diffuse(l, rec);
-	if (!tuple_equal(diffuse, pixel(0, 0, 0)))
+	if (!tuple_equal(diffuse, specular))
 		specular = lighting_specular(l, rec);
-	if (!is_shadowed(job, l, rec))
-		result = sum(diffuse, specular);
+	result = sum(diffuse, specular);
 	result.a = 0;
 	return (result);
 }

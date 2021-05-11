@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 11:24:35 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 15:33:00 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:22:39 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ typedef struct s_material
 typedef struct s_scatter_params
 {
 	t_job			*job;
-	t_material		material;
-	t_ray			ray;
 	t_intersection	*record;
 	t_pixel			*attenuation;
 	t_ray			*scattered;

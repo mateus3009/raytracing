@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_normal.c                                     :+:      :+:    :+:   */
+/*   parse_rainbow.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 10:33:55 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 20:57:20 by msales-a         ###   ########.fr       */
+/*   Created: 2021/05/01 23:54:58 by msales-a          #+#    #+#             */
+/*   Updated: 2021/05/11 01:50:43 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color_normal.h"
-#include "./../../objects/objects.h"
+#include "parser_lines.h"
+#include "./../../filter/filter.h"
 
-t_material	color_normal(void)
+bool	parse_rainbow(t_rt_data *data, void	**args)
 {
-	t_material		material;
+	t_object	*obj;
 
-	material.data = NULL;
-	material.color = pixel(1, 1, 1);
-	material.scatter = color_normal_scatter;
-	return (material);
+	if (!data->objects)
+		return (true);
+	obj = (t_object *)data->objects->content;
+	obj->filter = filter_rainbow;
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 10:06:07 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/09 16:44:58 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:15:45 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_object	*object(size_t data_size)
 		return (NULL);
 	}
 	obj->data = data;
+	obj->filter = NULL;
 	obj->intersect = NULL;
 	obj->normal_at = NULL;
 	obj->material = phong(pixel(.5, .5, .5), .6, 1, 10);

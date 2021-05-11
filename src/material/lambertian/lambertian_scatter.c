@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:17:01 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/06 21:10:48 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 02:10:11 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ bool	lambertian_scatter(t_scatter_params p)
 	if (near_zero(target))
 		target = p.record->normal;
 	*p.scattered = ray(p.record->point, minus(target, p.record->point));
-	*p.attenuation = p.material.color;
+	*p.attenuation = filter(p.record);
 	return (true);
 }

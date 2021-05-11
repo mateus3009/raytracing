@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 19:56:26 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/10 09:53:38 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 02:06:28 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ static void	clear_arg_parsers_results(int argc, void ***results)
 {
 	int	index;
 
-	index = 0;
-	while (index < argc - 1)
-		free((*results)[index++]);
-	free(*results);
-	*results = NULL;
+	if (results && *results)
+	{
+		index = 0;
+		while (index < argc - 1)
+			free((*results)[index++]);
+		free(*results);
+		*results = NULL;
+	}
 }
 
 bool	process_line(t_rt_data *data, char *line)

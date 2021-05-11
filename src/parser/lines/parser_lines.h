@@ -6,7 +6,7 @@
 /*   By: msales-a <msales-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 21:28:16 by msales-a          #+#    #+#             */
-/*   Updated: 2021/05/10 23:58:42 by msales-a         ###   ########.fr       */
+/*   Updated: 2021/05/11 01:51:19 by msales-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ bool	parse_dielectric(t_rt_data *data, void **argv);
 bool	parse_quaternion(t_rt_data *data, void **argv);
 bool	parse_rotation(t_rt_data *data, void **argv);
 bool	parse_cylinder_capped(t_rt_data *data, void	**args);
+bool	parse_rainbow(t_rt_data *data, void	**args);
 
 #endif
